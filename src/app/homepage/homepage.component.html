@@ -1,0 +1,59 @@
+<div class="container mt-100">
+  <div class="text-center">
+    <img class="card-img-top" src="../../assets/images/hh-icon.png" style="width:10%; display:inline-block">
+  </div>
+  <div class="row mt-4">
+    <div *ngIf="admin" class="col-md-4">
+      <div class="text-center">
+        <a href="/register"><img class="card-img-top" src="../../assets/images/register.png" style="width:20%; display:inline-block"></a>
+      </div>
+      <div class="card mt-4" style="width: 100%">
+        <div class="card-block">
+          <h4 class="card-title text-center">Register Team</h4>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="admin" class="col-md-4">
+      <div class="text-center">
+        <a href="/group"><img class="card-img-top" src="../../assets/images/group.png" style="width:30%; display:inline-block"></a>
+      </div>
+      <div class="card mt-4" style="width: 100%">
+        <div class="card-block">
+          <h4 class="card-title text-center">Group</h4>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="admin" class="col-md-4">
+      <div class="text-center"><a href="/match">
+        <img class="card-img-top" src="../../assets/images/match.png" style="width:20%; display:inline-block"></a>
+      </div>
+      <div class="card mt-4" style="width: 100%">
+        <div class="card-block">
+          <h4 class="card-title text-center">Match</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-4">
+      <div class="text-center">
+        <a href="/schedule">
+        <img class="card-img-top" src="../../assets/images/result.png" style="width:24%; display:inline-block"></a>
+      </div>
+      <div class="card mt-4" style="width: 100%">
+        <div class="card-block">
+          <h4 class="card-title text-center">Result</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-4">
+      <div class="text-center">
+        <a style="cursor: pointer" (click)="logout()">
+        <img class="card-img-top" src="../../assets/images/logout.png" style="width:20%; display:inline-block"></a>
+      </div>
+      <div class="card mt-4" style="width: 100%">
+        <div class="card-block">
+          <h4 class="card-title text-center">Logout</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

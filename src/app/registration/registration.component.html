@@ -1,0 +1,13 @@
+<div class="text-center mt-100">
+  <form #loginForm="ngForm" class="form-signin">
+    <img class="mb-4" src="../../assets/images/hh-icon.png" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <div *ngIf="err" class="alert alert-danger" role="alert"><strong>Email & Password not match</strong></div>
+    <label for="inputEmail" class="sr-only mt-4">Email address</label>
+    <input type="email" id="inputEmail" name="email" class="form-control mt-4" placeholder="Email address" required autofocus ngModel required>
+    <label for="inputPassword" class="sr-only mt-4">Password</label>
+    <input type="password" id="inputPassword" name="password" class="form-control mt-4" placeholder="Password" required ngModel required>
+    <button class="btn btn-lg btn-primary btn-block mt-4" type="submit" (click)="submit(loginForm)">Sign in</button>
+    <p class="mt-5 mb-3 text-muted mt-4">&copy; 2017-2018</p>
+  </form>
+</div>

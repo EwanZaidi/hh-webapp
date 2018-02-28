@@ -1,0 +1,109 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/register">Hoop Hood</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/register">Register </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/group">Group </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/match">Match <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/schedule">Result</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="mt-100 container">
+  <h4>Match</h4>
+  <form #matchForm="ngForm" class="form-signin-2">
+    <div class="row">
+      <div class="col-md-6">Date & Time</div>
+      <div class="col-md-3"><input type="date" name="date" class="form-control" ngModel></div>
+      <div class="col-md-3"><input type="time" name="time" class="form-control" ngModel></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Match No:</div>
+      <div class="col-md-6"><input type="number" name="match" class="form-control" placeholder="0" ngModel></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Stage:</div>
+      <div class="col-md-6">
+        <select placeholder="stage" name="stage" class="form-control" ngModel>
+          <option *ngFor="let s of stage" [value]="s.id">
+            {{s.id}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Category:</div>
+      <div class="col-md-5">
+        <select placeholder="category" name="category" class="form-control" ngModel>
+          <option *ngFor="let c of category" [value]="c.id">
+            {{c.id}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-1"><button class="btn btn-primary btn-sm" (click)="checkcategory(matchForm)">Select Category</button></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Zone:</div>
+      <div class="col-md-5">
+        <select placeholder="zone" name="zone" class="form-control" ngModel>
+          <option *ngFor="let g of zone" [value]="g.id">
+            {{g.id}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-1"><button class="btn btn-primary btn-sm" (click)="checkzone(matchForm)">Select Zone</button></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Home Team:</div>
+      <div class="col-md-6">
+        <select placeholder="category" name="home" class="form-control" ngModel>
+          <option *ngFor="let i of team | async" [value]="i.id">
+            {{i.data.team_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Away Team:</div>
+      <div class="col-md-6">
+        <select placeholder="category" name="away" class="form-control" ngModel>
+          <option *ngFor="let i of team | async" [value]="i.id">
+            {{i.data.team_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Venue:</div>
+      <div class="col-md-6">
+        <select placeholder="venue" name="venue" class="form-control" ngModel>
+          <option *ngFor="let i of venue" [value]="i.id">
+            {{i.id}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-success" (click)="submitMatch(matchForm)">Submit</button>
+      <button class="btn btn-danger" (click)="cancel(matchForm)">Cancel</button>
+    </div>
+  </div>
+</div>

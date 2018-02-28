@@ -1,1 +1,20 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
 /* You can add global styles to this file, and also import other style files */
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin-2 {
+    width: 100%;
+    max-width: 750px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.mt-100{
+    margin-top:50px;
+}

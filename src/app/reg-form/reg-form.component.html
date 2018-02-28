@@ -1,0 +1,176 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/register">Hoop Hood</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/group">Group</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/match">Match</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/schedule">Result</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div *ngIf="addform" class="text-center mt-100 row">
+  <div class="alert alert-danger" role="alert"><strong>Your form is not valid</strong></div>
+  <div *ngIf="success" class="alert alert-success" role="alert"><strong>Your group and team has been updated</strong></div>
+  <div class="col-md-6">
+    <h4>Team Registration</h4>
+    <form #registerForm="ngForm" class="form-signin-2">
+      <div class="row">
+        <div class="col-md-4 text-right">Nama Pasukan :</div>
+        <div class="col-md-8">
+          <input type="text" name="team" class="form-control" ngModel required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Guru Pengiring :</div>
+        <div class="col-md-8">
+          <input type="text" name="guru" class="form-control" ngModel required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Coach :</div>
+        <div class="col-md-8">
+          <input type="text" name="coach" class="form-control" ngModel required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Penolong Coach :</div>
+        <div class="col-md-8">
+          <input type="text" name="atcoach" class="form-control" ngModel>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Kategori :</div>
+        <div class="col-md-8">
+          <select placeholder="category" name="category" class="form-control" ngModel required>
+            <option *ngFor="let c of category" [value]="c.id">
+              {{c.id}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Zone :</div>
+        <div class="col-md-8">
+          <select placeholder="zone" name="zone" class="form-control" ngModel required>
+            <option *ngFor="let g of zone" [value]="g.id">
+              {{g.id}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <button [disabled]="newPlayer?.length < 1" class="btn btn-success" (click)="addTeam(registerForm)">Submit Team</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-left">Player added</p>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary" (click)="addplayer()">Add Player</button>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-2">#</div>
+      <div class="col-md-5">Name</div>
+      <div class="col-md-5">Jersi</div>
+    </div>
+    <div *ngFor="let n of newPlayer; let i = index">
+      <div class="row text-center">
+        <div class="col-md-2">{{i + 1}}</div>
+        <div class="col-md-5">{{n.name}}</div>
+        <div class="col-md-5">{{n.jersi}}</div>
+      </div>
+    </div>
+    <div *ngIf="!playerlist" class="mt-4">
+      <form #playerForm="ngForm">
+        <div class="row">
+          <div class="col-md-4 text-left">Nama Pemain:</div>
+          <div class="col-md-6">
+            <input type="text" name="name" ngModel class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Jersi:</div>
+          <div class="col-md-6">
+            <input type="number" name="jersi" ngModel class="form-control">
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-success mt-4" (click)="addedplayer(playerForm)">Submit Player</button>
+      <button class="btn btn-danger mt-4" (click)="cancelplayer()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!addform" class="container mt-100">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-8">
+          <h5>Registered Team</h5>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" (click)="addnewteam()">Add New Team</button>
+        </div>
+      </div>
+      <table class="table mt-4">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Team Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let t of teamList$ | async; let i = index">
+          <tr>
+            <td>{{i + 1}}</td>
+            <td>{{t.data.team_name}}</td>
+            <td>
+              <button class="btn btn-block btn-primary" (click)="confirm(t.id)">Confirm team</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h5>Confirmed Team</h5>
+      <table class="table mt-4">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Team Name</th>
+            <th scope="col">Category</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let t of teamConfirm$ | async; let i = index">
+          <tr class="text-center">
+            <td>{{i + 1}}</td>
+            <td>{{t.data.team_name}}</td>
+            <td>
+              {{t.data.category}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/register">Hoop Hood</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register </a>
+      </li>
+      <li class="nav-item  active">
+        <a class="nav-link" href="/group">Group <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/match">Match</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/schedule">Result</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div *ngIf="register" class="container mt-100">
+  <div *ngIf="err" class="alert alert-danger" role="alert"><strong>Your form is not valid</strong></div>
+  <div *ngIf="success" class="alert alert-success" role="alert"><strong>Your group and team has been updated</strong></div>
+  <div class="row">
+    <div class="col-md-6"><h4>Register Group</h4></div>
+
+  </div>
+  <form #registerGroup="ngForm" class="form-signin-2">
+    <div class="row mt-4">
+      <div class="col-md-4 text-right">Group Name :</div>
+      <div class="col-md-8">
+        <input type="text" name="gname" class="form-control" placeholder="Lelaki A / Perempuan A" ngModel required>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4 text-right">Group Category</div>
+      <div class="col-md-7">
+        <select placeholder="category" name="category" class="form-control" ngModel required>
+          <option *ngFor="let i of id" [value]="i.id">
+            {{i.id}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-primary" (click)="searchteam(registerGroup)">Find Team</button>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4 text-right">Zone:</div>
+      <div class="col-md-7">
+        <select placeholder="zone" name="zone" class="form-control" ngModel required>
+          <option *ngFor="let g of zone" [value]="g.id">
+            {{g.id}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4 text-right">Team Name</div>
+      <div class="col-md-8">
+        <select [disabled]="!findteam" placeholder="team" name="team" class="form-control" ngModel required>
+          <option *ngFor="let t of tCollection | async" [value]="t.id">
+            {{t.data.team_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-md-12  text-center">
+      <button class="btn btn-success" (click)="addToGroup(registerGroup)">Confirm</button>
+      <button class="btn btn-danger" (click)="back()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!register" class="container mt-100">
+  <div class="row mt-4">
+    <div class="col-md-4 text-right">Zone:</div>
+    <div class="col-md-7">
+      <select placeholder="zone" name="zone" class="form-control" (change)="test($event.target.value)">
+        <option *ngFor="let g of zone" [value]="g.id">
+          {{g.id}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6 text-left">
+      <h4>Groups</h4>
+    </div>
+    <div class="col-md-6 text-right">
+      <button class="btn btn-secondary" (click)="changeView()"> Add new group</button>
+    </div>
+  </div>
+  <h5>Lelaki</h5>
+  <div class="row mt-4">
+    <div *ngFor="let g of groupsL | async" class="col-md-4">
+      <h6>Group {{g.id}}</h6>
+      <table class="table">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Team Name</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let t of g.teamList | async, let i=index">
+          <tr>
+            <td>{{i + 1}}</td>
+            <td>{{t.data.team_name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="mt-4">
+    <h5>Perempuan</h5>
+  </div>
+  <div class="row mt-4">
+    <div *ngFor="let g of groupsP | async" class="col-md-4">
+      <h6>Group {{g.id}}</h6>
+      <table class="table">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Team Name</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let t of g.teamList | async, let i=index">
+          <tr>
+            <td>{{i + 1}}</td>
+            <td>{{t.data.team_name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
