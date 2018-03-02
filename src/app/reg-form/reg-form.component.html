@@ -26,8 +26,6 @@
 </nav>
 
 <div *ngIf="addform" class="text-center mt-100 row">
-  <div class="alert alert-danger" role="alert"><strong>Your form is not valid</strong></div>
-  <div *ngIf="success" class="alert alert-success" role="alert"><strong>Your group and team has been updated</strong></div>
   <div class="col-md-6">
     <h4>Team Registration</h4>
     <form #registerForm="ngForm" class="form-signin-2">
@@ -122,6 +120,8 @@
 </div>
 
 <div *ngIf="!addform" class="container mt-100">
+  <div *ngIf="err" class="alert alert-danger" role="alert"><strong>Your form is not valid</strong></div>
+  <div *ngIf="success" class="alert alert-success" role="alert"><strong>Your group and team has been updated</strong></div>
   <div class="row">
     <div class="col-md-6">
       <div class="row">

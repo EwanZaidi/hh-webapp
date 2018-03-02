@@ -29,11 +29,8 @@
   <form #dateForm="ngForm">
   <div class="row">
       <div class="col-md-6">Date & Time</div>
-      <div class="col-md-3">
+      <div class="col-md-6">
         <input type="date" name="date" class="form-control" ngModel>
-      </div>
-      <div class="col-md-3">
-        <input type="time" name="time" class="form-control" ngModel>
       </div>
   </div>
   <div class="row mt-4">
@@ -59,16 +56,19 @@
         <table class="table">
           <thead class="thead-dark text-center">
             <tr>
+              <th scope="col">Match no</th>
               <th scope="col">Home Team</th>
               <th scope="col">Score</th>
               <th scope="col"></th>
               <th scope="col">Score</th>
               <th scope="col">Away Team</th>
+              <th scope="col">Time</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody *ngFor="let m of match | async; let i=index">
             <tr class="text-center">
+              <td>{{m.data.match_no}}</td>
               <td>{{m.data.team1_name}}</td>
               <td>
                 <span [hidden]="result[i]">{{m.data.team1_score}}</span>
@@ -79,6 +79,7 @@
                 <span [hidden]="result[i]">{{m.data.team2_score}}</span>
                 <input [hidden]="!editinput[i]" type="number" class="form-control" name="awayscore" ngModel></td>
               <td>{{m.data.team2_name}}</td>
+              <td>{{m.data.datetime | date : 'hh:mm a'}}</td>
               <td>
                 <button [hidden]="result[i]" class="btn btn-primary" (click)="editscore(i)">Edit Score</button>
                 <button [hidden]="!editinput[i]" class="btn btn-success" (click)="addScore(scoreForm,m.id,i)">Add Score</button>

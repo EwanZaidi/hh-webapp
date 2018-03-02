@@ -48,9 +48,15 @@ export class ResultComponent implements OnInit {
   }
 
   selDate(form){
-    let time = new Date(form.value.date+ ' ' +form.value.time);
+    // let time = new Date(form.value.date+ ' ' +form.value.time);
+    let time = new Date(form.value.date);
+    let tomorrow = new Date(form.value.date);
+    tomorrow.setDate(tomorrow.getDate() + 1);
 
-    this.matches = this.fs.collection('matches', ref => ref.where('datetime', '==', time).where('zone', '==', form.value.zone));
+    console.log(tomorrow);
+    
+
+    this.matches = this.fs.collection('matches', ref => ref.where('datetime', '>=', time).where('datetime', '<', tomorrow).where('zone', '==', form.value.zone));
     this.match = this.matches.snapshotChanges().map(m => {
       return m.map(ma => {
         const data = ma.payload.doc.data();
@@ -59,6 +65,8 @@ export class ResultComponent implements OnInit {
         return {data,id}
       })
     })
+
+
   }
 
   editscore(me){
@@ -81,6 +89,23 @@ export class ResultComponent implements OnInit {
       this.result[index] = false;
       this.editinput[index] = false;
     })
+
+    let team : AngularFirestoreDocument<any> = this.fs.collection('matches').doc('id');
+    let t : Observable<any> = team.snapshotChanges().take(1).map(x => {
+      const data = x.payload.data();
+      const id = x.payload.id;
+
+      let a = data.team1_id;
+      let b = data.team2_id
+
+      console.log(a, b);
+      
+
+
+      return {data,id}
+    })
+
+
   }
 
 }

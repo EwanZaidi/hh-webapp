@@ -113,7 +113,7 @@
         </thead>
         <tbody *ngFor="let t of g.teamList | async, let i=index">
           <tr>
-            <td>{{i + 1}}</td>
+            <td>{{t.data.pos}}</td>
             <td>{{t.data.team_name}}</td>
           </tr>
         </tbody>
@@ -135,7 +135,7 @@
         </thead>
         <tbody *ngFor="let t of g.teamList | async, let i=index">
           <tr>
-            <td>{{i + 1}}</td>
+            <td>{{t.data.pos}}</td>
             <td>{{t.data.team_name}}</td>
           </tr>
         </tbody>

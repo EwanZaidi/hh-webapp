@@ -90,6 +90,7 @@ export class RegFormComponent implements OnInit {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
       setTimeout(function () {
         this.success = false;
+        this.newPlayer = [];
       }.bind(this), 3000);
 
       this.addform = !this.addform;}else{

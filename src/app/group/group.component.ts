@@ -45,7 +45,7 @@ export class GroupComponent implements OnInit {
         const data = i.payload.doc.data();
         const id = i.payload.doc.id;
 
-        let teamList = this.fs.collection('groups/'+id+'/team_list').snapshotChanges().take(1).map(xtem => {
+        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('pos')}).snapshotChanges().take(1).map(xtem => {
           return xtem.map(x => {
             const data = x.payload.doc.data();
             const id = x.payload.doc.id;
@@ -64,7 +64,7 @@ export class GroupComponent implements OnInit {
         const data = i.payload.doc.data();
         const id = i.payload.doc.id;
 
-        let teamList = this.fs.collection('groups/'+id+'/team_list').snapshotChanges().take(1).map(xtem => {
+        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('pos')}).snapshotChanges().take(1).map(xtem => {
           return xtem.map(x => {
             const data = x.payload.doc.data();
             const id = x.payload.doc.id;
