@@ -73,6 +73,12 @@
           </select>
         </div>
       </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Pos :</div>
+        <div class="col-md-8">
+          <input type="text" name="pos" class="form-control" ngModel required minlength="2" maxlength="3">
+        </div>
+      </div>
     </form>
     <button [disabled]="newPlayer?.length < 1" class="btn btn-success" (click)="addTeam(registerForm)">Submit Team</button>
     <button class="btn btn-danger" (click)="cancel()">Cancel</button>
@@ -159,6 +165,7 @@
             <th scope="col">#</th>
             <th scope="col">Team Name</th>
             <th scope="col">Category</th>
+            <th scope="col">Zone</th>
           </tr>
         </thead>
         <tbody *ngFor="let t of teamConfirm$ | async; let i = index">
@@ -168,6 +175,7 @@
             <td>
               {{t.data.category}}
             </td>
+            <td>{{t.data.zone}}</td>
           </tr>
         </tbody>
       </table>

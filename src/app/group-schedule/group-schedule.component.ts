@@ -57,17 +57,26 @@ export class GroupScheduleComponent implements OnInit {
   }
 
   submitMatch(form){
+    let grp_name = '';
     let time = new Date(form.value.date+ ' ' +form.value.time);
     let match_no = form.value.match;
     let n = match_no.toString();
-  
-    console.log(time);
+
+    if(form.value.zone == 'Tengah'){
+      grp_name = 'tgh'
+    }else if(form.value.zone == 'Selatan'){
+      grp_name = 'st'
+    }else if(form.value.zone == 'Timur'){
+      grp_name = 'tmr'
+    }else{
+      grp_name = 'kbg'
+    }
     
     let home : AngularFirestoreDocument<any> = this.fs.collection('teams').doc(form.value.home);
     let homes : Observable<any> = home.valueChanges();
 
     homes.subscribe( i => {
-      this.fs.collection('matches').doc(n).set({
+      this.fs.collection('matches').doc(grp_name+n).set({
         team1_name: i.team_name,
         category : form.value.category,
         datetime : time,
@@ -78,7 +87,8 @@ export class GroupScheduleComponent implements OnInit {
         team1_score: 0,
         team2_score: 0,
         venue: form.value.venue,
-        zone: form.value.zone
+        zone: form.value.zone,
+        group: grp_name + form.value.group
       })
     })
 
@@ -86,7 +96,7 @@ export class GroupScheduleComponent implements OnInit {
     let aways : Observable<any> = away.valueChanges();
 
     aways.subscribe( i => {
-      this.fs.collection('matches').doc(n).update({
+      this.fs.collection('matches').doc(grp_name+n).update({
         team2_name: i.team_name
       })
     })

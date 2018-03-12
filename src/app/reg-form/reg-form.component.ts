@@ -36,7 +36,7 @@ export class RegFormComponent implements OnInit {
       })
     })
 
-    this.teamConfirm = this.firestore.collection('teams', ref => ref.where('is_confirm', '==', true));
+    this.teamConfirm = this.firestore.collection('teams', ref => ref.where('is_confirm', '==', true).orderBy('zone').orderBy('category'));
     this.teamConfirm$ = this.teamConfirm.snapshotChanges().map(items=> {
       return items.map(i => {
         const data = i.payload.doc.data();
@@ -77,7 +77,8 @@ export class RegFormComponent implements OnInit {
       manager: registerForm.value.guru,
       category: registerForm.value.category,
       zone: registerForm.value.zone,
-      is_confirm: false 
+      is_confirm: false,
+      pos: registerForm.value.pos
       }).then(ref => {
         this.newPlayer.forEach(item => {
           this.firestore.collection('teams').doc(ref.id).collection('players').add({

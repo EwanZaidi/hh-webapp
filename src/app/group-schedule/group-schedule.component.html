@@ -35,7 +35,7 @@
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Match No:</div>
-      <div class="col-md-6"><input type="number" name="match" class="form-control" placeholder="0" ngModel></div>
+      <div class="col-md-6"><input type="text" name="match" class="form-control" placeholder="0" ngModel maxlength="4"></div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Stage:</div>
@@ -68,6 +68,10 @@
         </select>
       </div>
       <div class="col-md-1"><button class="btn btn-primary btn-sm" (click)="checkzone(matchForm)">Select Zone</button></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">Group:</div>
+      <div class="col-md-6"><input type="text" name="group" class="form-control" placeholder="A / B / C" ngModel maxlength="4"></div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Home Team:</div>

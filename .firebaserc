@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "ghyred-sweet16"
+    "default": "ghyred-sweet16",
+    "dev": "ghyred-sweet16"
   }
 }

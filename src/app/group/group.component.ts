@@ -107,26 +107,37 @@ export class GroupComponent implements OnInit {
 
   addToGroup(form: NgForm){
 
+    let grp_name = '';
+    if(form.value.zone == 'Tengah'){
+      grp_name = 'tgh'
+    }else if(form.value.zone == 'Selatan'){
+      grp_name = 'st'
+    }else if(form.value.zone == 'Timur'){
+      grp_name = 'tmr'
+    }else{
+      grp_name = 'kbg'
+    }
+
     if(form.valid){
       const collection : AngularFirestoreDocument<any> = this.fs.collection('teams').doc(form.value.team);
       const c : Observable<any> = collection.valueChanges();
   
       c.subscribe(data => {
         this.teamName = data.team_name;
-        console.log(form.value.team);
         
-        this.fs.collection('groups').doc(form.value.gname).set({
+        this.fs.collection('groups').doc(grp_name+form.value.gname).set({
           category: form.value.category,
           group_name: form.value.gname,
           zone: form.value.zone,
         }, {merge: true});
   
-        this.fs.collection('groups').doc(form.value.gname).collection('team_list').doc(form.value.team).set({
+        this.fs.collection('groups').doc(grp_name+form.value.gname).collection('team_list').doc(form.value.team).set({
           lost: 0,
           played: 0,
           points: 0,
           win: 0,
-          team_name: this.teamName
+          team_name: this.teamName,
+          pos: data.pos
         })
       });
   
