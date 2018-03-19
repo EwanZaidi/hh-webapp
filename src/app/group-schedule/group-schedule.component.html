@@ -40,12 +40,24 @@
     <div class="row mt-4">
       <div class="col-md-6">Stage:</div>
       <div class="col-md-6">
-        <select placeholder="stage" name="stage" class="form-control" ngModel>
+        <select placeholder="stage" name="stage" class="form-control" ngModel (change)="test($event.target.value)">
           <option *ngFor="let s of stage" [value]="s.id">
             {{s.id}}
           </option>
         </select>
       </div>
+    </div>
+    <div class="row mt-4" *ngIf="grouping">
+      <div class="col-md-6">Group:</div>
+      <div class="col-md-6"><input type="text" name="group" class="form-control" placeholder="A / B / C" ngModel maxlength="4"></div>
+    </div>
+    <div class="row mt-4" *ngIf="quarter">
+      <div class="col-md-6">Quarter Final:</div>
+      <div class="col-md-6"><input type="text" name="qf" class="form-control" placeholder="1 / 2 / 3 / 4" ngModel maxlength="4"></div>
+    </div>
+    <div class="row mt-4" *ngIf="semi">
+      <div class="col-md-6">Semi Final:</div>
+      <div class="col-md-6"><input type="text" name="sf" class="form-control" placeholder="1 / 2 / 3 / 4" ngModel maxlength="4"></div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Category:</div>
@@ -68,10 +80,6 @@
         </select>
       </div>
       <div class="col-md-1"><button class="btn btn-primary btn-sm" (click)="checkzone(matchForm)">Select Zone</button></div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-6">Group:</div>
-      <div class="col-md-6"><input type="text" name="group" class="form-control" placeholder="A / B / C" ngModel maxlength="4"></div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Home Team:</div>

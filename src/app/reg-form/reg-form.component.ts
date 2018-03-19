@@ -25,6 +25,15 @@ export class RegFormComponent implements OnInit {
 
   success: Boolean = false;
   err : Boolean = false;
+  editform: Boolean = false;
+  teamlist: Boolean = true;
+
+  team: Observable<any>;
+  updateId;
+  oldPlayer: Observable<any>;
+  uplayer : Boolean = false;
+  playerid;
+  player : Observable<any>;
 
   constructor(private firestore: AngularFirestore) {
     this.teamList = this.firestore.collection('teams', ref => ref.where('is_confirm', '==', false))
@@ -60,14 +69,28 @@ export class RegFormComponent implements OnInit {
   }
 
   cancelplayer(){
-    this.playerlist = !this.playerlist;
+    this.playerlist = true;
+    this.uplayer = false;
   }
 
   addnewteam(){
-    this.addform = !this.addform
+    this.addform = !this.addform;
+    this.teamlist = false;
   }
 
   addTeam(registerForm: NgForm){
+
+    let grp_name = '';
+
+    if(registerForm.value.zone == 'Tengah'){
+      grp_name = 'TGH';
+    }else if(registerForm.value.zone == 'Selatan'){
+      grp_name = 'SLT';
+    }else if(registerForm.value.zone == 'Timur'){
+      grp_name = 'TMR';
+    }else{
+      grp_name = 'KBG'
+    }
 
     if(registerForm.valid)
     {this.firestore.collection('teams').add({
@@ -77,8 +100,7 @@ export class RegFormComponent implements OnInit {
       manager: registerForm.value.guru,
       category: registerForm.value.category,
       zone: registerForm.value.zone,
-      is_confirm: false,
-      pos: registerForm.value.pos
+      is_confirm: false
       }).then(ref => {
         this.newPlayer.forEach(item => {
           this.firestore.collection('teams').doc(ref.id).collection('players').add({
@@ -94,7 +116,9 @@ export class RegFormComponent implements OnInit {
         this.newPlayer = [];
       }.bind(this), 3000);
 
-      this.addform = !this.addform;}else{
+      this.addform = !this.addform;
+      this.teamlist = true;
+    }else{
         this.err = !this.err;
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         setTimeout(function () {
@@ -112,7 +136,101 @@ export class RegFormComponent implements OnInit {
   }
 
   cancel(){
-    this.addform = !this.addform;
+    this.addform = false;
+    this.teamlist = true;
+    this.editform = false;
+  }
+
+  edit(id){
+    this.editform = true;
+    this.teamlist = false;
+    this.addform = false;
+
+    this.updateId = id;
+
+    let teams : AngularFirestoreDocument<any> = this.firestore.collection('teams').doc(id);
+    this.team = teams.valueChanges();
+
+    let player : AngularFirestoreCollection<any> = this.firestore.collection('teams').doc(id).collection('players');
+    this.oldPlayer = player.snapshotChanges().map(p => {
+      return p.map(pl => {
+        const data = pl.payload.doc.data();
+        const id= pl.payload.doc.id;
+
+        return {data, id};
+      })
+    })
+    
+  }
+
+  UpdateTeam(registerForm: NgForm){
+
+    let grp_name = '';
+
+    if(registerForm.value.zone == 'Tengah'){
+      grp_name = 'TGH';
+    }else if(registerForm.value.zone == 'Selatan'){
+      grp_name = 'SLT';
+    }else if(registerForm.value.zone == 'Timur'){
+      grp_name = 'TMR';
+    }else{
+      grp_name = 'KBG'
+    }
+
+    if(registerForm.valid)
+    { this.firestore.collection('teams').doc(this.updateId).update({
+      team_name: registerForm.value.team,
+      coach: registerForm.value.coach,
+      assistant_coach: registerForm.value.atcoach,
+      manager: registerForm.value.guru,
+      category: registerForm.value.category,
+      zone: registerForm.value.zone,
+      }).then(ref => {
+        this.newPlayer.forEach(item => {
+          this.firestore.collection('teams').doc(this.updateId).collection('players').add({
+            player_name: item.name, player_jersey: item.jersi
+          })
+        })
+      })
+
+      this.success = !this.success;
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      setTimeout(function () {
+        this.success = false;
+        this.newPlayer = [];
+      }.bind(this), 3000);
+
+      this.addform = false;
+      this.teamlist = true;
+      this.editform = false;
+    }else{
+        this.addform = !this.addform;
+        this.teamlist = true;
+        this.editform = false;
+        this.err = !this.err;
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        setTimeout(function () {
+          this.err = false;
+        }.bind(this), 3000);
+      }
+  }
+
+  eplayer(id){
+    this.playerid = id;
+    this.uplayer = true;
+
+    let p : AngularFirestoreDocument<any> = this.firestore.collection('teams').doc(this.updateId).collection('players').doc(id);
+    this.player = p.valueChanges();
+  }
+
+  updateplayer(playerForm){
+    this.firestore.collection('teams').doc(this.updateId).collection('players').doc(this.playerid).update({
+      player_name : playerForm.value.name,
+      player_jersey : playerForm.value.jersi
+    }).then(t => {
+      this.uplayer = false;
+    })
+
   }
 
 }

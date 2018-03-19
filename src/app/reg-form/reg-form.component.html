@@ -73,14 +73,8 @@
           </select>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col-md-4 text-right">Pos :</div>
-        <div class="col-md-8">
-          <input type="text" name="pos" class="form-control" ngModel required minlength="2" maxlength="3">
-        </div>
-      </div>
     </form>
-    <button [disabled]="newPlayer?.length < 1" class="btn btn-success" (click)="addTeam(registerForm)">Submit Team</button>
+    <button class="btn btn-success" (click)="addTeam(registerForm)">Submit Team</button>
     <button class="btn btn-danger" (click)="cancel()">Cancel</button>
   </div>
   <div class="col-md-6">
@@ -125,7 +119,127 @@
   </div>
 </div>
 
-<div *ngIf="!addform" class="container mt-100">
+<div *ngIf="editform" class="text-center mt-100 row">
+  <div class="col-md-6">
+    <h4>Team Registration</h4>
+    <form #registerForm="ngForm" class="form-signin-2">
+      <div class="row">
+        <div class="col-md-4 text-right">Nama Pasukan :</div>
+        <div class="col-md-8">
+          <input type="text" name="team" class="form-control" ngModel [ngModel]="(team|async)?.team_name" required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Guru Pengiring :</div>
+        <div class="col-md-8">
+          <input type="text" name="guru" class="form-control" ngModel [ngModel]="(team|async)?.manager" required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Coach :</div>
+        <div class="col-md-8">
+          <input type="text" name="coach" class="form-control" ngModel [ngModel]="(team|async)?.coach" required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Penolong Coach :</div>
+        <div class="col-md-8">
+          <input type="text" name="atcoach" class="form-control" [ngModel]="(team|async)?.assistant_coach" ngModel>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Kategori :</div>
+        <div class="col-md-8">
+          <select placeholder="category" name="category" class="form-control" ngModel [ngModel]="(team|async)?.category" required>
+            <option *ngFor="let c of category" [value]="c.id">
+              {{c.id}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4 text-right">Zone :</div>
+        <div class="col-md-8">
+          <select placeholder="zone" name="zone" class="form-control" ngModel [ngModel]="(team|async)?.zone" required>
+            <option *ngFor="let g of zone" [value]="g.id">
+              {{g.id}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <button class="btn btn-success" (click)="UpdateTeam(registerForm)">Update Team</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-left">Player added</p>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary" (click)="addplayer()">Add Player</button>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-2">#</div>
+      <div class="col-md-4">Name</div>
+      <div class="col-md-4">Jersi</div>
+    </div>
+    <div *ngFor="let n of oldPlayer | async; let i = index">
+      <div class="row text-center">
+        <div class="col-md-2">{{i + 1}}</div>
+        <div class="col-md-4">{{n.data.player_name}}</div>
+        <div class="col-md-4">{{n.data.player_jersey}}</div>
+        <div class="col-md-2"><button class="btn btn-primary" (click)="eplayer(n.id)">Edit</button></div>
+      </div>
+    </div>
+    <div *ngFor="let n of newPlayer; let i = index">
+      <div class="row text-center">
+        <div class="col-md-2">{{i + 1}}</div>
+        <div class="col-md-4">{{n.name}}</div>
+        <div class="col-md-4">{{n.jersi}}</div>
+      </div>
+    </div>
+    <div *ngIf="!playerlist" class="mt-4">
+      <form #playerForm="ngForm">
+        <div class="row">
+          <div class="col-md-4 text-left">Nama Pemain:</div>
+          <div class="col-md-6">
+            <input type="text" name="name" ngModel class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Jersi:</div>
+          <div class="col-md-6">
+            <input type="number" name="jersi" ngModel class="form-control">
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-success mt-4" (click)="addedplayer(playerForm)">Submit Player</button>
+      <button class="btn btn-danger mt-4" (click)="cancelplayer()">Cancel</button>
+    </div>
+    <div *ngIf="uplayer" class="mt-4">
+      <form #playerForm="ngForm">
+        <div class="row">
+          <div class="col-md-4 text-left">Nama Pemain:</div>
+          <div class="col-md-6">
+            <input type="text" name="name" ngModel [ngModel]="(player|async)?.player_name" class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Jersi:</div>
+          <div class="col-md-6">
+            <input type="number" name="jersi" ngModel [ngModel]="(player|async)?.player_jersey" class="form-control">
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-success mt-4" (click)="updateplayer(playerForm)">Submit Player</button>
+      <button class="btn btn-danger mt-4" (click)="cancelplayer()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="teamlist" class="container mt-100">
   <div *ngIf="err" class="alert alert-danger" role="alert"><strong>Your form is not valid</strong></div>
   <div *ngIf="success" class="alert alert-success" role="alert"><strong>Your group and team has been updated</strong></div>
   <div class="row">
@@ -166,6 +280,7 @@
             <th scope="col">Team Name</th>
             <th scope="col">Category</th>
             <th scope="col">Zone</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody *ngFor="let t of teamConfirm$ | async; let i = index">
@@ -176,6 +291,7 @@
               {{t.data.category}}
             </td>
             <td>{{t.data.zone}}</td>
+            <td><button class="btn btn-primary" (click)="edit(t.id)">Edit Team</button></td>
           </tr>
         </tbody>
       </table>

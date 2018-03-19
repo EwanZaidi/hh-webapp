@@ -56,7 +56,7 @@ export class ResultComponent implements OnInit {
     console.log(tomorrow);
     
 
-    this.matches = this.fs.collection('matches', ref => ref.where('datetime', '>=', time).where('datetime', '<', tomorrow).where('zone', '==', form.value.zone));
+    this.matches = this.fs.collection('matches', ref => ref.where('datetime', '>=', time).where('datetime', '<', tomorrow).where('zone', '==', form.value.zone).orderBy('datetime','asc'));
     this.match = this.matches.snapshotChanges().map(m => {
       return m.map(ma => {
         const data = ma.payload.doc.data();

@@ -63,6 +63,8 @@
               <th scope="col">Score</th>
               <th scope="col">Away Team</th>
               <th scope="col">Time</th>
+              <th scope="col">Category</th>
+              <th scope="col">Stage</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -80,11 +82,14 @@
                 <input [hidden]="!editinput[i]" type="number" class="form-control" name="awayscore" ngModel></td>
               <td>{{m.data.team2_name}}</td>
               <td>{{m.data.datetime | date : 'hh:mm a'}}</td>
+              <td>{{m.data.category}}</td>
+              <td>{{m.data.description}}</td>
               <td>
                 <button [hidden]="result[i]" class="btn btn-primary" (click)="editscore(i)">Edit Score</button>
                 <button [hidden]="!editinput[i]" class="btn btn-success" (click)="addScore(scoreForm,m.id,i)">Add Score</button>
-                <button [hidden]="!editinput[i]" class="btn btn-danger" (click)="cancel(i)">Cancel</button></td>
-          </tbody>
+                <button [hidden]="!editinput[i]" class="btn btn-danger" (click)="cancel(i)">Cancel</button>
+              </td>
+           </tbody>
         </table>
     </form>
   </div>

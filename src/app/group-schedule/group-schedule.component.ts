@@ -22,6 +22,13 @@ export class GroupScheduleComponent implements OnInit {
   venue = [{id: 'Court A'}, {id:'Court B'}];
   zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}];
   kat;
+  zon;
+
+  grouping : Boolean = false;
+  quarter : Boolean = false;
+  semi : Boolean = false;
+  final : Boolean= false;
+
 
   uid;
   admin : Boolean = false;
@@ -56,6 +63,35 @@ export class GroupScheduleComponent implements OnInit {
     form.reset();
   }
 
+  test(event){
+    if(event == 'Group'){
+      this.grouping = true;
+      this.quarter = false;
+      this.semi = false;
+      this.final = false;
+    }else if(event == 'Quarterfinal'){
+      this.grouping = false;
+      this.quarter = true;
+      this.semi = false;
+      this.final = false;
+    }else if(event == 'Semifinal'){
+      this.grouping = false;
+      this.quarter = false;;
+      this.semi = true;
+      this.final = false;
+    }else if(event == 'Final'){
+      this.grouping = false;
+      this.quarter = false;
+      this.semi = false;
+      this.final = true;
+    }else{
+      this.grouping = false;
+      this.quarter = false;
+      this.semi = false;
+      this.final = false;
+    }
+  }
+
   submitMatch(form){
     let grp_name = '';
     let time = new Date(form.value.date+ ' ' +form.value.time);
@@ -75,22 +111,56 @@ export class GroupScheduleComponent implements OnInit {
     let home : AngularFirestoreDocument<any> = this.fs.collection('teams').doc(form.value.home);
     let homes : Observable<any> = home.valueChanges();
 
-    homes.subscribe( i => {
-      this.fs.collection('matches').doc(grp_name+n).set({
-        team1_name: i.team_name,
-        category : form.value.category,
-        datetime : time,
-        description : form.value.stage,
-        match_no: form.value.match,
-        team1_id: form.value.home,
-        team2_id: form.value.away,
-        team1_score: 0,
-        team2_score: 0,
-        venue: form.value.venue,
-        zone: form.value.zone,
-        group: grp_name + form.value.group
+    if(this.grouping == true || this.final == true){
+      homes.subscribe( i => {
+        this.fs.collection('matches').doc(grp_name+n).set({
+          team1_name: i.team_name,
+          category : form.value.category,
+          datetime : time,
+          description : form.value.stage,
+          match_no: form.value.match,
+          team1_id: form.value.home,
+          team2_id: form.value.away,
+          team1_score: 0,
+          team2_score: 0,
+          venue: form.value.venue,
+          zone: form.value.zone,
+          group: grp_name + form.value.group
+        })
       })
-    })
+    }else if(this.quarter == true){
+      homes.subscribe( i => {
+        this.fs.collection('matches').doc(grp_name+n).set({
+          team1_name: i.team_name,
+          category : form.value.category,
+          datetime : time,
+          description : form.value.stage+' '+form.value.qf,
+          match_no: form.value.match,
+          team1_id: form.value.home,
+          team2_id: form.value.away,
+          team1_score: 0,
+          team2_score: 0,
+          venue: form.value.venue,
+          zone: form.value.zone,
+        })
+      })
+    }else if(this.semi == true){
+      homes.subscribe( i => {
+        this.fs.collection('matches').doc(grp_name+n).set({
+          team1_name: i.team_name,
+          category : form.value.category,
+          datetime : time,
+          description : form.value.stage+' '+form.value.sf,
+          match_no: form.value.match,
+          team1_id: form.value.home,
+          team2_id: form.value.away,
+          team1_score: 0,
+          team2_score: 0,
+          venue: form.value.venue,
+          zone: form.value.zone,
+        })
+      })
+    }
 
     let away : AngularFirestoreDocument<any> = this.fs.collection('teams').doc(form.value.away);
     let aways : Observable<any> = away.valueChanges();
@@ -103,6 +173,7 @@ export class GroupScheduleComponent implements OnInit {
   }
 
   checkzone(form){
+    this.zon = form.value.zone;
     this.teams = this.fs.collection('teams', ref => ref.where('is_confirm', '==', true).where('category', '==', this.kat).where('zone', '==', form.value.zone));
     this.team = this.teams.snapshotChanges().take(1).map(teams => {
       return teams.map(t => {

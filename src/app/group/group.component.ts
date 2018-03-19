@@ -109,13 +109,13 @@ export class GroupComponent implements OnInit {
 
     let grp_name = '';
     if(form.value.zone == 'Tengah'){
-      grp_name = 'tgh'
+      grp_name = 'TGH';
     }else if(form.value.zone == 'Selatan'){
-      grp_name = 'st'
+      grp_name = 'SLT';
     }else if(form.value.zone == 'Timur'){
-      grp_name = 'tmr'
+      grp_name = 'TMR';
     }else{
-      grp_name = 'kbg'
+      grp_name = 'KBG'
     }
 
     if(form.valid){
@@ -129,6 +129,7 @@ export class GroupComponent implements OnInit {
           category: form.value.category,
           group_name: form.value.gname,
           zone: form.value.zone,
+          pos: form.value.pos
         }, {merge: true});
   
         this.fs.collection('groups').doc(grp_name+form.value.gname).collection('team_list').doc(form.value.team).set({
