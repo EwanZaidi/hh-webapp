@@ -1,0 +1,102 @@
+<div *ngIf="display" class="container">
+  <div class="row">
+    <div class="col-md-5 text-center">
+      <p *ngIf="(match$ | async) as m">{{m.team1_name}}</p>
+    </div>
+    <div class="col-md-2 text-center">
+      <p>SUMMARY</p>
+    </div>
+    <div class="col-md-5 text-center">
+      <p *ngIf="(match$ | async) as m">{{m.team2_name}}</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-5 text-center">
+      <div class="row" *ngFor="let h of top_score_home; let i = index">
+          <div class="col-md-4">
+            {{i + 1}}
+          </div>
+          <div class="col-md-4">
+            {{h.name}}
+          </div>
+          <div class="col-md-4">
+            {{h.points}}
+          </div>
+      </div>
+      <button class="btn btn-primary" (click)="add('team1_scorer')">Add Scorer</button>
+    </div>
+    <div class="col-md-2 text-center">
+      <p>SCORER</p>
+    </div>
+    <div class="col-md-5 text-center">
+      <div class="row" *ngFor="let h of top_score_away; let i = index">
+          <div class="col-md-4">
+            {{i + 1}}
+          </div>
+          <div class="col-md-4">
+            {{h.name}}
+          </div>
+          <div class="col-md-4">
+            {{h.points}}
+          </div>
+      </div>
+      <button class="btn btn-primary" (click)="add('team2_scorer')">Add Scorer</button>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-5 text-center">
+      <div class="row" *ngFor="let h of top_3ptr_home; let i = index">
+        <div class="col-md-4">
+          {{i + 1}}
+        </div>
+        <div class="col-md-4">
+          {{h.name}}
+        </div>
+        <div class="col-md-4">
+          {{h.points}}
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="add('team1_3ptr')">Add 3 pointer</button>
+    </div>
+    <div class="col-md-2 text-center">
+      <p>3 Pointer</p>
+    </div>
+    <div class="col-md-5 text-center">
+      <div class="row" *ngFor="let h of top_3ptr_away; let i = index">
+        <div class="col-md-4">
+          {{i + 1}}
+        </div>
+        <div class="col-md-4">
+          {{h.name}}
+        </div>
+        <div class="col-md-4">
+          {{h.points}}
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="add('team2_3ptr')">Add 3 pointer</button>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-success" (click)="savetofb()">Save</button>
+      <button class="btn btn-danger" (click)="clear()">Clear</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="insert" class="container">
+  <form #scorer="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" id="name" name="name" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="point">Point(s)</label>
+      <input class="form-control" type="number" id="point" name="point" ngModel>
+    </div>
+    <button class="btn btn-primary" (click)="save(scorer)">Save</button>
+  </form>
+</div>

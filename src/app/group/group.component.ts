@@ -129,7 +129,6 @@ export class GroupComponent implements OnInit {
           category: form.value.category,
           group_name: form.value.gname,
           zone: form.value.zone,
-          pos: form.value.pos
         }, {merge: true});
   
         this.fs.collection('groups').doc(grp_name+form.value.gname).collection('team_list').doc(form.value.team).set({
@@ -137,8 +136,9 @@ export class GroupComponent implements OnInit {
           played: 0,
           points: 0,
           win: 0,
+          gd: 0,
           team_name: this.teamName,
-          pos: data.pos
+          pos: form.value.pos
         })
       });
   

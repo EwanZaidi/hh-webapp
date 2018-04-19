@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { GroupComponent } from './group/group.component';
+import { EditScoreComponent } from './edit-score/edit-score.component';
 
 const routes: Routes = [
   { path: '', component: RegistrationComponent, pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'group', component: GroupComponent,canActivate: [AuthService]},
   {path: 'schedule', component: ResultComponent,canActivate: [AuthService]},
   {path: 'match', component: GroupScheduleComponent,canActivate: [AuthService]},
-  {path: 'home', component: HomepageComponent, canActivate: [AuthService]}
+  {path: 'home', component: HomepageComponent, canActivate: [AuthService]},
+  {path: 'edit/:id', component: EditScoreComponent, canActivate: [AuthService]}
 ];
 
 

@@ -19,6 +19,7 @@ import { ResultComponent } from './result/result.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 import { HomepageComponent } from './homepage/homepage.component';
+import { EditScoreComponent } from './edit-score/edit-score.component';
 
 
 
@@ -30,7 +31,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     GroupComponent,
     GroupScheduleComponent,
     ResultComponent,
-    HomepageComponent
+    HomepageComponent,
+    EditScoreComponent
   ],
   imports: [
     BrowserModule,

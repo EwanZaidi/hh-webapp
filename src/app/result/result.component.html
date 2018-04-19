@@ -1,5 +1,6 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="/register">Hoop Hood</a>
@@ -19,7 +20,9 @@
         <a class="nav-link" href="/match">Match</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/schedule">Result <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/schedule">Result
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
     </ul>
   </div>
@@ -27,70 +30,77 @@
 
 <div class="container mt-100">
   <form #dateForm="ngForm">
-  <div class="row">
+    <div class="row">
       <div class="col-md-6">Date & Time</div>
       <div class="col-md-6">
         <input type="date" name="date" class="form-control" ngModel>
       </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-md-6">Zone</div>
-    <div class="col-md-6">
-      <select placeholder="zone" name="zone" class="form-control" ngModel>
-        <option *ngFor="let g of zone" [value]="g.id">
-          {{g.id}}
-        </option>
-      </select>
     </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-md-10"></div>
-    <div class="col-md-2">
-      <button class="btn btn-success" (click)="selDate(dateForm)">Search</button>
+    <div class="row mt-4">
+      <div class="col-md-6">Zone</div>
+      <div class="col-md-6">
+        <select placeholder="zone" name="zone" class="form-control" ngModel>
+          <option *ngFor="let g of zone" [value]="g.id">
+            {{g.id}}
+          </option>
+        </select>
+      </div>
     </div>
-  </div>
+    <div class="row mt-4">
+      <div class="col-md-10"></div>
+      <div class="col-md-2">
+        <button class="btn btn-success" (click)="selDate(dateForm)">Search</button>
+      </div>
+    </div>
   </form>
 
   <div class="mt-4">
     <form #scoreForm="ngForm">
-        <table class="table">
-          <thead class="thead-dark text-center">
-            <tr>
-              <th scope="col">Match no</th>
-              <th scope="col">Home Team</th>
-              <th scope="col">Score</th>
-              <th scope="col"></th>
-              <th scope="col">Score</th>
-              <th scope="col">Away Team</th>
-              <th scope="col">Time</th>
-              <th scope="col">Category</th>
-              <th scope="col">Stage</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let m of match | async; let i=index">
-            <tr class="text-center">
-              <td>{{m.data.match_no}}</td>
-              <td>{{m.data.team1_name}}</td>
-              <td>
-                <span [hidden]="result[i]">{{m.data.team1_score}}</span>
-                <input [hidden]="!editinput[i]" type="number" class="form-control" name="homescore" ngModel>
-              </td>
-              <td>VS</td>
-              <td>
-                <span [hidden]="result[i]">{{m.data.team2_score}}</span>
-                <input [hidden]="!editinput[i]" type="number" class="form-control" name="awayscore" ngModel></td>
-              <td>{{m.data.team2_name}}</td>
-              <td>{{m.data.datetime | date : 'hh:mm a'}}</td>
-              <td>{{m.data.category}}</td>
-              <td>{{m.data.description}}</td>
-              <td>
-                <button [hidden]="result[i]" class="btn btn-primary" (click)="editscore(i)">Edit Score</button>
-                <button [hidden]="!editinput[i]" class="btn btn-success" (click)="addScore(scoreForm,m.id,i)">Add Score</button>
-                <button [hidden]="!editinput[i]" class="btn btn-danger" (click)="cancel(i)">Cancel</button>
-              </td>
-           </tbody>
-        </table>
+      <table class="table">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">Match no</th>
+            <th scope="col">Home Team</th>
+            <th scope="col">Score</th>
+            <th scope="col"></th>
+            <th scope="col">Score</th>
+            <th scope="col">Away Team</th>
+            <th scope="col">Time</th>
+            <th scope="col">Category</th>
+            <th scope="col">Stage</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let m of match | async; let i=index">
+          <tr class="text-center">
+            <td>{{m.data.match_no}}
+            </td>
+            <td>
+              {{m.data.team1_name}}
+            </td>
+            <td>
+              <span [hidden]="result[i]">{{m.data.team1_score}}</span>
+              <input [hidden]="!editinput[i]" type="number" class="form-control" name="homescore" ngModel>
+            </td>
+            <td>VS</td>
+            <td>
+              <span [hidden]="result[i]">{{m.data.team2_score}}</span>
+              <input [hidden]="!editinput[i]" type="number" class="form-control" name="awayscore" ngModel>
+            </td>
+            <td>
+              {{m.data.team2_name}}
+            </td>
+            <td>{{m.data.datetime | date : 'hh:mm a'}}</td>
+            <td>{{m.data.category}}</td>
+            <td>{{m.data.description}}</td>
+            <td>
+              <button [hidden]="result[i]" class="btn btn-primary" (click)="edit(i)">Edit Score</button>
+              <button [hidden]="result[i]" class="btn btn-primary" (click)="editscore(m.id)">Scorer</button>
+              <button [hidden]="!editinput[i]" class="btn btn-success" (click)="addScore(scoreForm,m.id,i)">Add Score</button>
+              <button [hidden]="!editinput[i]" class="btn btn-danger" (click)="cancel(i)">Cancel</button>
+            </td>
+        </tbody>
+      </table>
     </form>
   </div>
 </div>

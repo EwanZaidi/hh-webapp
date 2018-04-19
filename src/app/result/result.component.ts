@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -19,8 +20,9 @@ export class ResultComponent implements OnInit {
   zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}];
   uid;
   admin : Boolean = false;
+  test: any;
 
-  constructor(private auth: AngularFireAuth, private fs: AngularFirestore) { 
+  constructor(private auth: AngularFireAuth, private fs: AngularFirestore, private router: Router) { 
     this.auth.authState.subscribe(item => {
       if(item){
         this.uid = item.uid;
@@ -50,41 +52,54 @@ export class ResultComponent implements OnInit {
   selDate(form){
     // let time = new Date(form.value.date+ ' ' +form.value.time);
     let time = new Date(form.value.date);
+    time.setHours(time.getHours() - 1);
     let tomorrow = new Date(form.value.date);
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     console.log(tomorrow);
     
 
-    this.matches = this.fs.collection('matches', ref => ref.where('datetime', '>=', time).where('datetime', '<', tomorrow).where('zone', '==', form.value.zone).orderBy('datetime','asc'));
+    this.matches = this.fs.collection('matches', ref => ref.where('datetime', '>=', time).where('datetime', '<', tomorrow).where('zone', '==', form.value.zone).orderBy('datetime','asc').orderBy('match_no', 'asc'));
     this.match = this.matches.snapshotChanges().map(m => {
       return m.map(ma => {
+        
         const data = ma.payload.doc.data();
         const id = ma.payload.doc.id;
+        
 
         return {data,id}
       })
     })
 
+    this.match.subscribe();
+
 
   }
 
+  edit(me){
+    if (this.result[me] == false) {
+      this.editinput[me] = true;
+      this.result[me] = true;
+    }
+    else {
+      this.editinput[me] = true;
+      this.result[me] = true;
+    }  
+  }
+
   editscore(me){
-    console.log(me);
-     if(this.result[me] == false){
-       this.editinput[me] = true;
-       this.result[me] = true;
-     }
-     else{
-       this.editinput[me] = true;
-       this.result[me] = true;
-     }  
+    this.router.navigateByUrl('/edit/'+me)
+
   }
 
   addScore(form,id,index){
     this.fs.collection('matches').doc(id).update({
       team1_score: form.value.homescore,
-      team2_score: form.value.awayscore
+      team2_score: form.value.awayscore,
+      team1_top_scorer: form.value.hometopscore,
+      team2_top_scorer: form.value.awaytopscore,
+      team1_3ptr: form.value.home3pt,
+      team2_3ptr: form.value.away3pt
     }).then(x => {
       this.result[index] = false;
       this.editinput[index] = false;
