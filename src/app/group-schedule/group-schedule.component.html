@@ -1,25 +1,30 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/register">Hoop Hood</a>
+  <a class="navbar-brand" href="/admin/register">Hoop Hood</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
+        <a class="nav-link" href="/admin/home">Home</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/admin/register">Register </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/group">Group
+
+        </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/register">Register </a>
+        <a class="nav-link" href="/admin/match">Match
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/group">Group </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/match">Match <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/schedule">Result</a>
+        <a class="nav-link" href="/admin/schedule">Result</a>
       </li>
     </ul>
   </div>
@@ -30,12 +35,18 @@
   <form #matchForm="ngForm" class="form-signin-2">
     <div class="row">
       <div class="col-md-6">Date & Time</div>
-      <div class="col-md-3"><input type="date" name="date" class="form-control" ngModel></div>
-      <div class="col-md-3"><input type="time" name="time" class="form-control" ngModel></div>
+      <div class="col-md-3">
+        <input type="date" name="date" class="form-control" ngModel>
+      </div>
+      <div class="col-md-3">
+        <input type="time" name="time" class="form-control" ngModel>
+      </div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Match No:</div>
-      <div class="col-md-6"><input type="number" name="match" class="form-control" placeholder="0" ngModel maxlength="4"></div>
+      <div class="col-md-6">
+        <input type="number" name="match" class="form-control" placeholder="0" ngModel maxlength="4">
+      </div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Stage:</div>
@@ -49,15 +60,21 @@
     </div>
     <div class="row mt-4" *ngIf="grouping">
       <div class="col-md-6">Group:</div>
-      <div class="col-md-6"><input type="text" name="group" class="form-control" placeholder="A / B / C" ngModel maxlength="4"></div>
+      <div class="col-md-6">
+        <input type="text" name="group" class="form-control" placeholder="A / B / C" ngModel maxlength="4">
+      </div>
     </div>
     <div class="row mt-4" *ngIf="quarter">
       <div class="col-md-6">Quarter Final:</div>
-      <div class="col-md-6"><input type="text" name="qf" class="form-control" placeholder="1 / 2 / 3 / 4" ngModel maxlength="4"></div>
+      <div class="col-md-6">
+        <input type="text" name="qf" class="form-control" placeholder="1 / 2 / 3 / 4" ngModel maxlength="4">
+      </div>
     </div>
     <div class="row mt-4" *ngIf="semi">
       <div class="col-md-6">Semi Final:</div>
-      <div class="col-md-6"><input type="text" name="sf" class="form-control" placeholder="1 / 2 / 3 / 4" ngModel maxlength="4"></div>
+      <div class="col-md-6">
+        <input type="text" name="sf" class="form-control" placeholder="1 / 2 / 3 / 4" ngModel maxlength="4">
+      </div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Category:</div>
@@ -68,7 +85,9 @@
           </option>
         </select>
       </div>
-      <div class="col-md-1"><button class="btn btn-primary btn-sm" (click)="checkcategory(matchForm)">Select Category</button></div>
+      <div class="col-md-1">
+        <button class="btn btn-primary btn-sm" (click)="checkcategory(matchForm)">Select Category</button>
+      </div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Zone:</div>
@@ -79,7 +98,9 @@
           </option>
         </select>
       </div>
-      <div class="col-md-1"><button class="btn btn-primary btn-sm" (click)="checkzone(matchForm)">Select Zone</button></div>
+      <div class="col-md-1">
+        <button class="btn btn-primary btn-sm" (click)="checkzone(matchForm)">Select Zone</button>
+      </div>
     </div>
     <div class="row mt-4">
       <div class="col-md-6">Home Team:</div>

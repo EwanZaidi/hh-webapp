@@ -29,7 +29,7 @@ export class GroupComponent implements OnInit {
   findteam: Boolean = false;
   register: Boolean = false;
   
-  zone = [{id: '----'},{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}];
+  zone = [{id: '----'},{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}, {id: 'Kebangsaan'}];
 
   teamName;
   add : Boolean = false;

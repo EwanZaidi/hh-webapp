@@ -1,0 +1,111 @@
+<div class="text-center mt-100 row">
+  <div class="col-md-12">
+    <div *ngIf="success" class="alert alert-success">Your team has been updated</div>
+    <h4>Team Management</h4>
+    <form #registerForm="ngForm" class="form-signin-2">
+      <div class="row">
+        <div class="col-md-6 text-right">Nama Pasukan :</div>
+        <div class="col-md-6">
+          <input type="text" name="team" class="form-control" ngModel [ngModel]="(team|async)?.team_name" required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6 text-right">Coach :</div>
+        <div class="col-md-6">
+          <input type="text" name="coach" class="form-control" ngModel [ngModel]="(team|async)?.coach" required>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6 text-right">Penolong Coach :</div>
+        <div class="col-md-6">
+          <input type="text" name="atcoach" class="form-control" [ngModel]="(team|async)?.assistant_coach" ngModel>
+        </div>
+      </div>
+    </form>
+    <button class="btn btn-success" (click)="UpdateTeam(registerForm)">Update Team</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+<div class="text-center mt-100 row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <p>Players</p>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary" (click)="addplayer()">Add New Player</button>
+      </div>
+    </div>
+    <div class="row text-center form-signin-2">
+      <div class="col-md-1">#</div>
+      <div class="col-md-3">Name</div>
+      <div class="col-md-3">Jersi</div>
+      <div class="col-md-3">Ic No</div>
+      <div class="col-md-2">Action</div>
+    </div>
+    <div *ngFor="let n of oldPlayer | async; let i = index">
+      <div class="row text-center form-signin-2">
+        <div class="col-md-1">{{i + 1}}</div>
+        <div class="col-md-3">{{n.data.player_name}}</div>
+        <div class="col-md-3">{{n.data.player_jersey}}</div>
+        <div class="col-md-3">{{n.data.player_ic}}</div>
+        <div class="col-md-2">
+          <div class="row">
+            <button class="btn btn-info btn-sm" (click)="eplayer(n.id)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="dplayer(n.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+      <hr/>
+    </div>
+
+    <div *ngIf="newPlayer" class="mt-4">
+      <form #playerForm="ngForm" class="form-signin-2">
+        <div class="row">
+          <div class="col-md-4 text-left">Nama Pemain:</div>
+          <div class="col-md-6">
+            <input type="text" name="name" ngModel class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Jersi:</div>
+          <div class="col-md-6">
+            <input type="number" name="jersey" ngModel class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Nric:</div>
+          <div class="col-md-6">
+            <input type="text" name="ic" ngModel class="form-control">
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-success mt-4" (click)="addedplayer(playerForm)">Submit Player</button>
+      <button class="btn btn-danger mt-4" (click)="cancelplayer()">Cancel</button>
+    </div>
+    <div *ngIf="uplayer" class="mt-4">
+      <form #playerForm="ngForm" class="form-signin-2">
+        <div class="row">
+          <div class="col-md-4 text-left">Nama Pemain:</div>
+          <div class="col-md-6">
+            <input type="text" name="name" ngModel [ngModel]="(player|async)?.player_name" class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Jersi:</div>
+          <div class="col-md-6">
+            <input type="number" name="jersey" ngModel [ngModel]="(player|async)?.player_jersey" class="form-control">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 text-left">Nric</div>
+          <div class="col-md-6">
+            <input type="text" name="ic" ngModel [ngModel]="(player|async)?.player_ic" class="form-control">
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-success mt-4" (click)="updateplayer(playerForm)">Update Player</button>
+      <button class="btn btn-danger mt-4" (click)="cancelplayer()">Cancel</button>
+    </div>
+  </div>
+</div>

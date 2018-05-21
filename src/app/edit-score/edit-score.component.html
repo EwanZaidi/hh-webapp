@@ -1,88 +1,173 @@
 <div *ngIf="display" class="container">
   <div class="row">
-    <div class="col-md-5 text-center">
+    <div class="col-md-5 col-sm-5 text-center">
       <p *ngIf="(match$ | async) as m">{{m.team1_name}}</p>
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 col-sm-2 text-center">
       <p>SUMMARY</p>
     </div>
-    <div class="col-md-5 text-center">
+    <div class="col-md-5 col-sm-5 text-center">
       <p *ngIf="(match$ | async) as m">{{m.team2_name}}</p>
     </div>
   </div>
   <hr/>
   <div class="row">
-    <div class="col-md-5 text-center">
-      <div class="row" *ngFor="let h of top_score_home; let i = index">
-          <div class="col-md-4">
+    <div class="col-md-5 col-sm-5 text-center">
+      <div class="row" *ngFor="let h of top_home | async ; let i = index">
+          <div class="col-md-1 col-sm-1 ">
             {{i + 1}}
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.name}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.points}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            <button class="btn btn-danger" (click)="deleteHome(h.id)">Delete</button>
+          </div>
+          <hr/>
+      </div>
+      <div class="row">New Scorer</div>
+      <hr/>
+      <div class="row" *ngFor="let h of top_score_home; let i = index">
+          <div class="col-md-1 col-sm-1 ">
+            {{i + 1}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
             {{h.name}}
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3 col-sm-3 ">
             {{h.points}}
           </div>
+          <div class="col-md-3 col-sm-3 ">
+            <button class="btn btn-danger" (click)="deleteTopHome(i)">Delete</button>
+          </div>
+          <hr/>
       </div>
       <button class="btn btn-primary" (click)="add('team1_scorer')">Add Scorer</button>
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 col-sm-2  text-center">
       <p>SCORER</p>
     </div>
-    <div class="col-md-5 text-center">
-      <div class="row" *ngFor="let h of top_score_away; let i = index">
-          <div class="col-md-4">
+    <div class="col-md-5 col-sm-5 text-center">
+      <div class="row" *ngFor="let h of top_away | async ; let i = index">
+          <div class="col-md-1 col-sm-1 ">
             {{i + 1}}
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.name}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.points}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            <button class="btn btn-danger" (click)="deleteAway(h.id)">Delete</button>
+          </div>
+          <hr/>
+      </div>
+      <div class="row">New Scorer</div>
+      <hr/>
+      <div class="row" *ngFor="let h of top_score_away; let i = index">
+          <div class="col-md-1 col-sm-1 ">
+            {{i + 1}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
             {{h.name}}
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3 col-sm-3 ">
             {{h.points}}
           </div>
+          <div class="col-md-3 col-sm-3 ">
+            <button class="btn btn-danger" (click)="deleteTopAway(i)">Delete</button>
+          </div>
+          <hr/>
       </div>
       <button class="btn btn-primary" (click)="add('team2_scorer')">Add Scorer</button>
     </div>
   </div>
   <hr/>
   <div class="row">
-    <div class="col-md-5 text-center">
+    <div class="col-md-5 col-sm-5 text-center">
+      <div class="row" *ngFor="let h of home_3ptr | async ; let i = index">
+          <div class="col-md-1 col-sm-1 ">
+            {{i + 1}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.name}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.points}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            <button class="btn btn-danger" (click)="delete3ptrH(h.id)">Delete</button>
+          </div>
+          <hr/>
+      </div>
+      <div class="row">New Scorer</div>
+      <hr/>
       <div class="row" *ngFor="let h of top_3ptr_home; let i = index">
-        <div class="col-md-4">
+        <div class="col-md-1 col-sm-1 ">
           {{i + 1}}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-sm-3 ">
           {{h.name}}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-sm-3 ">
           {{h.points}}
         </div>
+        <div class="col-md-3 col-sm-3 ">
+          <button class="btn btn-danger"(click)="delete3ptrHome(i)">Delete</button>
+        </div>
+        <hr/>
       </div>
-      <button class="btn btn-primary" (click)="add('team1_3ptr')">Add 3 pointer</button>
+      <button class="btn btn-primary" (click)="add2('team1_3ptr')">Add 3 pointer</button>
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 col-sm-2 text-center">
       <p>3 Pointer</p>
     </div>
-    <div class="col-md-5 text-center">
+    <div class="col-md-5 col-sm-5 text-center">
+      <div class="row" *ngFor="let h of away_3ptr | async ; let i = index">
+          <div class="col-md-1 col-sm-1 ">
+            {{i + 1}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.name}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            {{h.data.points}}
+          </div>
+          <div class="col-md-3 col-sm-3 ">
+            <button class="btn btn-danger" (click)="delete3ptrA(h.id)">Delete</button>
+          </div>
+          <hr/>
+      </div>
+      <div class="row">New Scorer</div>
+      <hr/>
       <div class="row" *ngFor="let h of top_3ptr_away; let i = index">
-        <div class="col-md-4">
+        <div class="col-md-1 col-sm-1 ">
           {{i + 1}}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-sm-3 ">
           {{h.name}}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-sm-3 ">
           {{h.points}}
         </div>
+        <div class="col-md-3 col-sm-3 ">
+          <button class="btn btn-danger" (click)="delete3ptrAway(i)">Delete</button>
+        </div>
+        <hr/>
       </div>
-      <button class="btn btn-primary" (click)="add('team2_3ptr')">Add 3 pointer</button>
+      <button class="btn btn-primary" (click)="add2('team2_3ptr')">Add 3 pointer</button>
     </div>
   </div>
   <hr/>
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 col-sm-12 text-center">
       <button class="btn btn-success" (click)="savetofb()">Save</button>
       <button class="btn btn-danger" (click)="clear()">Clear</button>
+      <button class="btn btn-info" (click)="back()">Back</button>
     </div>
   </div>
 </div>
@@ -98,5 +183,21 @@
       <input class="form-control" type="number" id="point" name="point" ngModel>
     </div>
     <button class="btn btn-primary" (click)="save(scorer)">Save</button>
+    <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+  </form>
+</div>
+
+<div *ngIf="insert3pt" class="container">
+  <form #scorer="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" id="name" name="name" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="point">Shot</label>
+      <input class="form-control" type="number" id="point" name="point" ngModel>
+    </div>
+    <button class="btn btn-primary" (click)="save(scorer)">Save</button>
+    <button class="btn btn-primary" (click)="cancel()">Cancel</button>
   </form>
 </div>

@@ -20,6 +20,10 @@ import { ResultComponent } from './result/result.component';
 export const firebaseConfig = environment.firebaseConfig;
 import { HomepageComponent } from './homepage/homepage.component';
 import { EditScoreComponent } from './edit-score/edit-score.component';
+import { RegTeamComponent } from './reg-team/reg-team.component';
+import { AuthService2 } from './service/auth2.service';
+import { ManageComponent } from './manage/manage.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -32,7 +36,10 @@ import { EditScoreComponent } from './edit-score/edit-score.component';
     GroupScheduleComponent,
     ResultComponent,
     HomepageComponent,
-    EditScoreComponent
+    EditScoreComponent,
+    RegTeamComponent,
+    ManageComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,7 @@ import { EditScoreComponent } from './edit-score/edit-score.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService,AuthService2],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

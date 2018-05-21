@@ -2,24 +2,24 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/register">Hoop Hood</a>
+  <a class="navbar-brand" href="/admin/register">Hoop Hood</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
+        <a class="nav-link" href="/admin/home">Home</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/admin/register">Register <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/group">Group</a>
+        <a class="nav-link" href="/admin/group">Group</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/match">Match</a>
+        <a class="nav-link" href="/admin/match">Match</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/schedule">Result</a>
+        <a class="nav-link" href="/admin/schedule">Result</a>
       </li>
     </ul>
   </div>
@@ -247,6 +247,7 @@
       <div class="row">
         <div class="col-md-8">
           <h5>Registered Team</h5>
+          <button class="btn btn-primary" (click)="copyteam()">Copy</button>
         </div>
         <div class="col-md-4">
           <button class="btn btn-primary" (click)="addnewteam()">Add New Team</button>

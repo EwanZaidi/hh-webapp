@@ -3,26 +3,29 @@
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/register">Hoop Hood</a>
+  <a class="navbar-brand" href="/admin/register">Hoop Hood</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
+        <a class="nav-link" href="/admin/home">Home</a>
       </li>
-      <li *ngIf="admin" class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
+      <li class="nav-item ">
+        <a class="nav-link" href="/admin/register">Register </a>
       </li>
-      <li *ngIf="admin" class="nav-item">
-        <a class="nav-link" href="/group">Group</a>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/group">Group
+
+        </a>
       </li>
-      <li *ngIf="admin" class="nav-item">
-        <a class="nav-link" href="/match">Match</a>
+      <li class="nav-item ">
+        <a class="nav-link" href="/admin/match">Match
+          
+        </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/schedule">Result
-          <span class="sr-only">(current)</span>
-        </a>
+        <a class="nav-link" href="/admin/schedule">Result
+          <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
@@ -99,6 +102,55 @@
               <button [hidden]="!editinput[i]" class="btn btn-success" (click)="addScore(scoreForm,m.id,i)">Add Score</button>
               <button [hidden]="!editinput[i]" class="btn btn-danger" (click)="cancel(i)">Cancel</button>
             </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <span>{{m.data.team1_name}}</span>
+              <div *ngFor="let h of m.home_scorer | async; let i=index">
+                <p>
+                  <span>Scorer</span>
+                  <span>{{i+1}}:</span>
+                  <span>{{h.data.name}}</span>
+                  <span>{{h.data.points}} pts</span>
+                </p>
+              </div>
+            </td>
+            <td class="text-center">VS</td>
+            <td colspan="3">
+              <span>{{m.data.team2_name}}</span>
+              <div *ngFor="let h of m.away_scorer | async; let i=index">
+                <p>
+                  <span>{{i+1}}:</span>
+                  <span>{{h.data.name}}</span>
+                  <span>{{h.data.points}} pts</span>
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <span>{{m.data.team1_name}}</span>
+              <div *ngFor="let h of m.home_3pt | async; let i=index">
+                <p>
+                  <span>3 Pointer</span>
+                  <span>{{i+1}}:</span>
+                  <span>{{h.data.name}}</span>
+                  <span>{{h.data.points}} Shot</span>
+                </p>
+              </div>
+            </td>
+            <td class="text-center">VS</td>
+            <td colspan="3">
+              <span>{{m.data.team2_name}}</span>
+              <div *ngFor="let h of m.away_3pt | async; let i=index">
+                <p>
+                  <span>{{i+1}}:</span>
+                  <span>{{h.data.name}}</span>
+                  <span>{{h.data.points}} Shot</span>
+                </p>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </form>

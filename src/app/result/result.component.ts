@@ -17,10 +17,13 @@ export class ResultComponent implements OnInit {
 
   result=[];
   editinput=[];
-  zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}];
+  zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'},{id: 'Kebangsaan'}];
   uid;
   admin : Boolean = false;
   test: any;
+
+  scorer: AngularFirestoreCollection<any>;
+  score: Observable<any>;
 
   constructor(private auth: AngularFireAuth, private fs: AngularFirestore, private router: Router) { 
     this.auth.authState.subscribe(item => {
@@ -57,22 +60,55 @@ export class ResultComponent implements OnInit {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     console.log(tomorrow);
-    
+    let scorer = [];
 
     this.matches = this.fs.collection('matches', ref => ref.where('datetime', '>=', time).where('datetime', '<', tomorrow).where('zone', '==', form.value.zone).orderBy('datetime','asc').orderBy('match_no', 'asc'));
     this.match = this.matches.snapshotChanges().map(m => {
       return m.map(ma => {
         
         const data = ma.payload.doc.data();
-        const id = ma.payload.doc.id;
-        
+        const id = ma.payload.doc.id
 
-        return {data,id}
+        let home_scorer = this.fs.collection('matches').doc(id).collection('team1_scorer',ref => ref.orderBy('points','desc')).snapshotChanges().map(x=> {
+          return x.map(y => {
+            const id= y.payload.doc.id;
+            const data= y.payload.doc.data();
+
+            return {id,data}
+          })
+        });
+
+        let away_scorer = this.fs.collection('matches').doc(id).collection('team2_scorer', ref => ref.orderBy('points','desc')).snapshotChanges().map(x=> {
+          return x.map(y => {
+            const id= y.payload.doc.id;
+            const data= y.payload.doc.data();
+
+            return {id,data}
+          })
+        });
+
+        let home_3pt = this.fs.collection('matches').doc(id).collection('team1_3ptr', ref => ref.orderBy('points','desc')).snapshotChanges().map(x=> {
+          return x.map(y => {
+            const id= y.payload.doc.id;
+            const data= y.payload.doc.data();
+
+            return {id,data}
+          })
+        });
+
+        let away_3pt = this.fs.collection('matches').doc(id).collection('team2_3ptr', ref => ref.orderBy('points','desc')).snapshotChanges().map(x=> {
+          return x.map(y => {
+            const id= y.payload.doc.id;
+            const data= y.payload.doc.data();
+
+            return {id,data}
+          })
+        });
+ 
+      
+        return {data,id,home_scorer,away_scorer,home_3pt,away_3pt}
       })
     })
-
-    this.match.subscribe();
-
 
   }
 
@@ -88,7 +124,7 @@ export class ResultComponent implements OnInit {
   }
 
   editscore(me){
-    this.router.navigateByUrl('/edit/'+me)
+    this.router.navigateByUrl('/admin/edit/'+me)
 
   }
 
@@ -96,10 +132,6 @@ export class ResultComponent implements OnInit {
     this.fs.collection('matches').doc(id).update({
       team1_score: form.value.homescore,
       team2_score: form.value.awayscore,
-      team1_top_scorer: form.value.hometopscore,
-      team2_top_scorer: form.value.awaytopscore,
-      team1_3ptr: form.value.home3pt,
-      team2_3ptr: form.value.away3pt
     }).then(x => {
       this.result[index] = false;
       this.editinput[index] = false;
