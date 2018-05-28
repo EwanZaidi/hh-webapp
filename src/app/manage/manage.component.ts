@@ -89,7 +89,7 @@ export class ManageComponent implements OnInit {
   }
 
   UpdateTeam(registerForm){
-    this.fs.collection('teams').doc(this.tid).update({
+    this.fs.collection('teams').doc(this.tid).set({
       team_name: registerForm.value.team,
       coach: registerForm.value.coach,
       assistant_coach: registerForm.value.atcoach

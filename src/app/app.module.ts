@@ -24,6 +24,7 @@ import { RegTeamComponent } from './reg-team/reg-team.component';
 import { AuthService2 } from './service/auth2.service';
 import { ManageComponent } from './manage/manage.component';
 import { AdminComponent } from './admin/admin.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 
@@ -39,7 +40,8 @@ import { AdminComponent } from './admin/admin.component';
     EditScoreComponent,
     RegTeamComponent,
     ManageComponent,
-    AdminComponent
+    AdminComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

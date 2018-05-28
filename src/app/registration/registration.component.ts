@@ -51,13 +51,17 @@ export class RegistrationComponent implements OnInit {
 
     register.subscribe(x => {
       if(x[0].password == regForm.value.password){
-        let id = x[0].team_id
-        window.localStorage.setItem('state',x[0].username);
-        this.route.navigateByUrl('/teamreg/'+id);
-      }else{
+        let id = x[0].team_id;
+        window.localStorage.setItem('state', x[0].username);
+        this.route.navigateByUrl('/teamreg/' + id);
+      } else {
         this.err2 = true;
       }
     })
+  }
+  
+  change(){
+    this.route.navigateByUrl('cpd');
   }
 
 }

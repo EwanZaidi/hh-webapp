@@ -1,3 +1,4 @@
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './service/auth.service';
 import { GroupScheduleComponent } from './group-schedule/group-schedule.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'admin/edit/:id', component: EditScoreComponent, canActivate: [AuthService]},
   {path: 'teamreg/:id', component: RegTeamComponent, canActivate: [AuthService2]},
   {path: 'teamreg/:id/manage', component: ManageComponent, canActivate: [AuthService2]},
-  {path:'admin', component: AdminComponent, pathMatch: 'full'}
+  {path:'admin', component: AdminComponent, pathMatch: 'full'},
+  {path:'cpd', component: ChangePasswordComponent, pathMatch: 'full'},
 ];
 
 

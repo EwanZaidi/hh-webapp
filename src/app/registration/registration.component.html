@@ -1,6 +1,6 @@
 <div class="text-center mt-100">
   <form #regForm="ngForm" class="form-signin">
-    <img class="mb-4" src="../../assets/images/hh-icon.png" alt="" width="72" height="72">
+    <img class="mb-4" src="../../assets/images/icon.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Team Management</h1>
     <div *ngIf="err2" class="alert alert-danger" role="alert">
       <strong>Username & Password not match</strong>
@@ -11,6 +11,7 @@
     <label for="inputPassword" class="sr-only mt-4">Password</label>
     <input type="password" id="inputPassword" name="password" class="form-control mt-4" placeholder="Password" required ngModel
       required>
+    <p><small (click)="change()" style="cursor: pointer;">Change Password?</small></p>
     <button class="btn btn-lg btn-primary btn-block mt-4" type="submit" (click)="regSubmit(regForm)">Sign in</button>
     <p class="mt-5 mb-3 text-muted mt-4">&copy; Get Hyred Team 2017-2018</p>
   </form>
