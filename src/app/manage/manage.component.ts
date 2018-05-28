@@ -62,6 +62,7 @@ export class ManageComponent implements OnInit {
       player_ic: playerForm.value.ic
     }).then(()=>{
       this.newPlayer = false;
+      playerForm.reset();
     })
   }
 
