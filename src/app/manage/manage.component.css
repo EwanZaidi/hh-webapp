@@ -45,3 +45,12 @@ ul {
     display: block;
     width: 100%;
   }
+
+
+
+  /* For border line */
+
+  p.round1 {
+    border: 2px solid red;
+    border-radius: 5px;
+}

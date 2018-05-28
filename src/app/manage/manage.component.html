@@ -8,25 +8,21 @@
 </div>
 
 
-<div class="text-center mt-100 row" style="z-index: 1;">
-  <div class="col-md-12">
-
-<div *ngIf="success" class="alert alert-success alert-dismissible">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    Your team has been updated</div>
-
-    <br>
-    <h3 style="color: black !important">{{(team|async)?.team_name}}</h3>
-
-    <h6><b>Coach:</b> {{(team|async)?.coach}} | <b>Asst. Coach:</b> {{ (team|async)?.assistant_coach }} | 
-      <span><i class="fa fa-pencil-square-o" data-toggle="modal" data-target="#myTeam" style="cursor: pointer; font-size: 24px; color: blue"></i>
-      </span></h6>
-
-
+    <div class="text-center mt-100 row" style="z-index: 1;">
+        <div class="col-md-12">
+      <div *ngIf="success" class="alert alert-success alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          Your team has been updated</div>
       
+          <br>
+          <h3 style="color: black !important">{{(team|async)?.team_name}}</h3>
+      
+          <h6><b>Coach:</b> {{(team|async)?.coach}} | <b>Asst. Coach:</b> {{ (team|async)?.assistant_coach }} | 
+            <span><button class="btn btn-info" data-toggle="modal" data-target="#myTeam" style="cursor: pointer;"><i class="fa fa-pencil-square-o" style="font-size: 24px"></i></button>
+            </span></h6>
+        </div>
+      </div>
 
-  </div>
-</div>
 
 <div class="text-center mt-100 row">
   <div class="col-md-12">
