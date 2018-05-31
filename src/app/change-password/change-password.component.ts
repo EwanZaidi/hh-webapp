@@ -14,37 +14,44 @@ export class ChangePasswordComponent implements OnInit {
   err;
   success: Boolean = false;
 
-  constructor(private fs: AngularFirestore, private router: Router) {}
+  constructor(private fs: AngularFirestore, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  resetAlert(){
+  resetAlert() {
     this.err = null;
     this.success = false;
   }
 
+  cancel() {
+    this.router.navigateByUrl('/');
+  }
+
   change(form) {
     this.resetAlert();
-    const login: Observable<any> = this.fs.collection('login', ref => ref.where('username', '==', form.value.uname )).snapshotChanges().map((x) => {
+    const login: Observable<any> = this.fs.collection('login', ref => ref.where('username', '==', form.value.uname)).snapshotChanges().map((x) => {
       return x.map(y => {
         const key = y.payload.doc.id;
         const data = y.payload.doc.data();
 
-        return {key, data}
+        return { key, data }
       })
     });
 
     login.subscribe((x) => {
-      if (x.length === 0) { this.err = 'Your username cannot be found in the databse, please resubmit'; 
-      setTimeout(() => {
-        this.err = null;  
-      },3000)}
-      else if(form.value.oldpassword !==  x[0].data.password ) { 
-        this.err = 'Your old password is incorrect, please resubmit'; 
+      if (x.length === 0) {
+      this.err = 'Your username cannot be found in the databse, please resubmit';
         setTimeout(() => {
-        this.resetAlert()
-      },3000)}
-      else if(form.value.oldpassword === x[0].data.password) {
+          this.err = null;
+        }, 3000)
+      }
+      else if (form.value.oldpassword !== x[0].data.password) {
+        this.err = 'Your old password is incorrect, please resubmit';
+        setTimeout(() => {
+          this.resetAlert()
+        }, 3000)
+      }
+      else if (form.value.oldpassword === x[0].data.password) {
         this.fs.collection('login').doc(x[0].key).update({
           password: form.value.newpassword
         }).then(() => {
