@@ -1,31 +1,51 @@
+<div class="nav-bar justify-content-center" style="z-index: 2;">
+
+</div>
+<div class="nav-bar-overlay" style="z-index: 2;">
+  <ul>
+    <li></li>
+  </ul>
+</div>
+<br>
 <div class="container mt-100">
   <div class="text-center">
-    <img class="card-img-top" src="../../assets/images/hh-icon.png" style="width:10%; display:inline-block">
+    <img class="card-img-top" src="../../assets/images/icon.png" style="width:10%; display:inline-block; border-radius: 50%">
   </div>
-  <div class="row  mt-4">
-    <div class="col-md-4">
-      <div class="text-center">
-        <a (click)="manage()">
-          <img class="card-img-top" src="../../assets/images/register.png" style="width:20%; display:inline-block">
-        </a>
-      </div>
-      <div class="card mt-4" style="width: 100%">
-        <div class="card-block">
-          <h4 class="card-title text-center">Manage Team</h4>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-sm-4 text-center">
+      <a (click)="manage()" style="cursor: pointer;">
+        <div class="card mt-4" style="width: 100%;padding: 10px">
+          <div class="panel panel-primary">
+            <div class="panel-body">
+              <img src="../../assets/images/register.png" class="img-responsive" style="width:100px" alt="Image">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title text-center">Manage Team</h4>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="text-center">
-        <a style="cursor: pointer" (click)="logout()">
-          <img class="card-img-top" src="../../assets/images/logout.png" style="width:20%; display:inline-block">
-        </a>
-      </div>
-      <div class="card mt-4" style="width: 100%">
-        <div class="card-block">
-          <h4 class="card-title text-center">Logout</h4>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
+
+  <div class="row justify-content-center">
+    <div class="col-sm-4 text-center">
+      <a (click)="logout()" style="cursor: pointer;">
+        <div class="card mt-4" style="width: 100%;padding: 10px">
+          <div class="panel panel-primary">
+            <div class="panel-body">
+              <img src="../../assets/images/logout.png" class="img-responsive" style="width: 90px;" alt="Image">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title text-center">Logout</h4>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
 </div>

@@ -19,3 +19,54 @@
 .mt-100{
     margin-top:50px;
 }
+
+/* For nav bar styling */
+
+.nav-bar{
+    height: 50px;
+    background-color: #ff0000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.nav-bar-overlay{
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 20%;
+}
+
+ul {
+    position: relative;
+    overflow: hidden;
+    font: 14px Arial;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  ul:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 124px;
+    margin-left: -140px;
+    width: 0;
+    border-left: 0 solid transparent;
+    border-right: 230px solid transparent;
+    border-top: 179px solid #000;
+  }
+  li {
+    height: 3.6em;
+    line-height: 3em;
+    position: relative;
+    margin-left: -562px;
+  }
+  li:after,
+  li:before {
+    content: "";
+    display: block;
+    width: 100%;
+  }
+
