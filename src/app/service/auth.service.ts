@@ -19,7 +19,7 @@ export class AuthService implements CanActivate{
       .map(state => !!state)
       .do(authenticated => {
     if 
-      (!authenticated) this.router.navigate([ '/' ]);
+      (!authenticated) this.router.navigate([ '/admin' ]);
     })
   }
 

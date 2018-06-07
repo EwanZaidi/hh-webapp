@@ -1,0 +1,97 @@
+
+.bg{
+    background-image: url('../../assets/images/kayu.jpg');
+    /* Full height */
+    height: 1000px; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#black_screen{
+    height: 300px;
+    background-color: black;
+    color: white;
+    padding-top:1.5rem;
+}
+
+#below_black_screen{
+    margin-top:20px;
+}
+
+#round{
+    height:80px;
+    width: 80px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+#row_1{
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#row_2{
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top:20px;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#time{
+    border: 1px white solid;
+    font-size: 40px;
+    height: 60px;
+}
+
+#s24{
+    border: 1px white solid;
+    font-size: 40px;
+    height: 60px;
+}
+
+#row_3{
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top:20px;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#row_4{
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#score{
+    line-height: 3;
+    font-size:30px;
+    font-style: italic;
+    color: white;
+}
+
+.bred{
+    background: linear-gradient(red, brown);
+    border: 2px solid rgb(126, 0, 0);
+}
+
+.bgreen{
+    background: linear-gradient(green, rgb(3, 78, 0));
+    border: 2px solid rgb(0, 56, 0);
+}
+
+.bblue{
+    background: linear-gradient(blue,rgb(1, 1, 94));
+    border: 2px solid rgb(0, 0, 71);
+}

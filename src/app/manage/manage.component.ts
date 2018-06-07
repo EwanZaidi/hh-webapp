@@ -93,7 +93,9 @@ export class ManageComponent implements OnInit {
     this.fs.collection('teams').doc(this.tid).set({
       team_name: registerForm.value.team,
       coach: registerForm.value.coach,
-      assistant_coach: registerForm.value.atcoach
+      assistant_coach: registerForm.value.atcoach,
+      zone: 'alumni',
+      is_confirm: true
     }).then(()=>{
       this.success = true;
     })

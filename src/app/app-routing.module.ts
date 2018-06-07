@@ -1,3 +1,4 @@
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './service/auth.service';
@@ -14,6 +15,7 @@ import { RegTeamComponent } from './reg-team/reg-team.component';
 import { AuthService2 } from './service/auth2.service';
 import { ManageComponent } from './manage/manage.component';
 import { AdminComponent } from './admin/admin.component';
+import { ScoreboardControllerComponent } from './scoreboard-controller/scoreboard-controller.component';
 
 const routes: Routes = [
   { path: '', component: RegistrationComponent, pathMatch: 'full' },
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path: 'teamreg/:id/manage', component: ManageComponent, canActivate: [AuthService2]},
   {path:'admin', component: AdminComponent, pathMatch: 'full'},
   {path:'cpd', component: ChangePasswordComponent, pathMatch: 'full'},
+  {path:'scoreboard', component: ScoreboardComponent, pathMatch:'full'},
+  {path: 'admin/:id/scoreboard', component: ScoreboardControllerComponent, canActivate: [AuthService]},
 ];
 
 

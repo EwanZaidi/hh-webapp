@@ -14,6 +14,10 @@ export class HomepageComponent implements OnInit {
   uid;
   admin : Boolean = false;
 
+  match: Observable<any>;
+
+  match_key: any;
+
   constructor(private auth: AngularFireAuth, private router: Router, private fs: AngularFirestore) { 
     this.auth.authState.subscribe(item => {
       if(item){
@@ -28,6 +32,16 @@ export class HomepageComponent implements OnInit {
             this.admin = false;
           }
         })
+
+        let matches: AngularFirestoreCollection<any> = this.fs.collection('matches', ref => ref.where('zone', '==', 'Tengah'));
+        this.match = matches.snapshotChanges().map(x => {
+          return x.map(y => {
+            const key = y.payload.doc.id;
+            const val = y.payload.doc.data();
+
+            return {key,val};
+          })
+        })
       }
     })
     
@@ -36,9 +50,17 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
   }
 
+  change(val){
+    this.match_key = val;
+  }
+
   logout(){
     this.auth.auth.signOut();
     this.router.navigateByUrl('/');
+  }
+
+  go(){
+    this.router.navigateByUrl(`/admin/${this.match_key}/scoreboard`);
   }
 
 }

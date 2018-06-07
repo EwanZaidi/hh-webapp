@@ -1,0 +1,531 @@
+@font-face {
+    font-family: 'crashed';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../styles/fonts/CursedTimerULiL.ttf") format('truetype');
+}
+
+/* @font-face {
+    font-family: 'advanced';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../styles/fonts/advanced_led_board-7.ttf") format('truetype');
+} */
+
+@media only screen and (min-width:1080px){
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+    }
+    
+    .white{
+        color: white;
+    }
+    
+    .yellow{
+        color: yellow;
+        font-family: 'crashed';
+    }
+    
+    .bbox{
+        background-color: black;
+        font-size: 250px;
+        border: 1px solid white;
+        min-width: 160px;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .c24{
+        background-color: black;
+        font-size: 200px;
+        border: 1px solid white;
+        min-width: 160px;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .time{
+        background-color: black;
+        font-size: 200px;
+        border: 1px solid white;
+        min-width: 100%;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .bbox2{
+        background-color: black;
+        font-size: 50px;
+        border: 1px solid white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .period{
+        background-color: black;
+        font-size: 80px;
+        border: 1px solid white;
+        padding: 10px;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    .fs {
+        font-size: 50px;
+    }
+    
+    .name {
+        font-size: 90px;
+    }
+    
+    .fs3 {
+        font-size: 30px;
+    }
+
+    .gray{
+        color: rgb(48, 48, 48);
+    }
+    
+    .red{
+        color: red;
+        font-family: 'crashed';
+    }
+    
+    .red2{
+        color: red;
+        font-family: 'crashed';
+        font-size: 80px;
+    }
+    
+    .green{
+        color: greenyellow;
+        font-family: 'crashed';
+    }
+}
+
+@media only screen and (min-width:1680px){
+    image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .gray{
+        color: rgb(48, 48, 48);
+    }
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+    }
+    
+    .white{
+        color: white;
+    }
+    
+    .yellow{
+        color: yellow;
+        font-family: 'crashed';
+    }
+
+    .fs4{
+        font-size: 35px;
+    }
+    
+    .bbox{
+        background-color: black;
+        font-size: 295px;
+        border: 1px solid white;
+        width: 97%;
+        text-align: right;
+        height: 400px;
+        line-height: 1.55;
+    }
+    
+    .c24{
+        background-color: black;
+        font-size: 200px;
+        border: 1px solid white;
+        min-width: 160px;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .time{
+        background-color: black;
+        font-size: 180px;
+        border: 1px solid white;
+        min-width: 100%;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .bbox2{
+        background-color: black;
+        font-size: 30px;
+        border: 1px solid white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .period{
+        background-color: black;
+        font-size: 80px;
+        border: 1px solid white;
+        padding: 10px;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .fs4{
+        font-size: 30px;
+    }
+    
+    .fs {
+        font-size: 50px;
+    }
+    
+    .name {
+        font-size: 90px;
+    }
+    
+    .fs3 {
+        font-size: 30px;
+    }
+    
+    .red{
+        color: red;
+        font-family: 'crashed';
+    }
+    
+    .red2{
+        color: red;
+        font-family: 'crashed';
+        font-size:55px;
+    }
+    
+    .green{
+        color: greenyellow;
+        font-family: 'crashed';
+    }
+}
+
+@media only screen and (max-width:1679px){
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .gray{
+        color: rgb(48, 48, 48);
+    }
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+    }
+    
+    .white{
+        color: white;
+    }
+    
+    .yellow{
+        color: yellow;
+        font-family: 'crashed';
+    }
+    
+    .bbox{
+        background-color: black;
+        font-size: 250px;
+        border: 1px solid white;
+        width: 90%;
+        text-align: center;
+        height: 350px;
+        line-height: 1.4;
+    }
+    
+    .c24{
+        background-color: black;
+        font-size: 200px;
+        border: 1px solid white;
+        min-width: 160px;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .time{
+        background-color: black;
+        font-size: 200px;
+        border: 1px solid white;
+        min-width: 100%;
+        text-align: center;
+        height: 250px;
+    }
+    
+    .bbox2{
+        background-color: black;
+        font-size: 25px;
+        border: 1px solid white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .period{
+        background-color: black;
+        font-size: 80px;
+        border: 1px solid white;
+        padding: 10px;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    .fs {
+        font-size: 50px;
+    }
+    
+    .name {
+        font-size: 90px;
+    }
+    
+    .fs3 {
+        font-size: 30px;
+    }
+
+    .fs4 {
+        font-size : 24px;
+    }
+    
+    .red{
+        color: red;
+        font-family: 'crashed';
+    }
+    
+    .red2{
+        color: red;
+        font-family: 'crashed';
+        font-size: 80px;
+    }
+    
+    .green{
+        color: greenyellow;
+        font-family: 'crashed';
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .fs4{
+        font-size: 14px;
+    }
+
+    .gray{
+        color: rgb(48, 48, 48);
+    }
+
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+    }
+    
+    .white{
+        color: white;
+    }
+    
+    .yellow{
+        color: yellow;
+        font-family: 'crashed';
+    }
+    
+    .bbox{
+        background-color: black;
+        font-size: 120px;
+        border: 1px solid white;
+        min-width: 160px;
+        text-align: center;
+        height: 200px;
+        line-height: 1.7;
+    }
+    
+    .c24{
+        background-color: black;
+        font-size: 100px;
+        border: 1px solid white;
+        min-width: 160px;
+        text-align: center;
+        height: 150px;
+    }
+    
+    .time{
+        background-color: black;
+        font-size: 80px;
+        border: 1px solid white;
+        min-width: 100%;
+        text-align: center;
+        height: 250px;
+        line-height: 3;
+    }
+    
+    .bbox2{
+        background-color: black;
+        font-size: 15px;
+        border: 1px solid white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .period{
+        background-color: black;
+        font-size: 20px;
+        border: 1px solid white;
+        padding: 10px;
+        min-width: 60px;
+        text-align: center;
+    }
+    
+    .fs {
+        font-size: 15px;
+    }
+    
+    .name {
+        font-size: 50px;
+    }
+    
+    .fs3 {
+        font-size: 15px;
+    }
+    
+    .red{
+        color: red;
+        font-family: 'crashed';
+    }
+    
+    .red2{
+        color: red;
+        font-family: 'crashed';
+        font-size: 30px;
+    }
+    
+    .green{
+        color: greenyellow;
+        font-family: 'crashed';
+    }
+}
+/* .image {
+    width: 150px;
+    height: 150px;
+}
+
+body, .bb {
+    background-color: grey;
+    min-height: 1080px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+.white{
+    color: white;
+}
+
+.yellow{
+    color: yellow;
+    font-family: 'crashed';
+}
+
+.bbox{
+    background-color: black;
+    font-size: 250px;
+    border: 1px solid white;
+    min-width: 160px;
+    text-align: center;
+    height: 250px;
+}
+
+.c24{
+    background-color: black;
+    font-size: 200px;
+    border: 1px solid white;
+    min-width: 160px;
+    text-align: center;
+    height: 250px;
+}
+
+.time{
+    background-color: black;
+    font-size: 200px;
+    border: 1px solid white;
+    min-width: 100%;
+    text-align: center;
+    height: 250px;
+}
+
+.bbox2{
+    background-color: black;
+    font-size: 50px;
+    border: 1px solid white;
+    padding: 10px;
+    text-align: center;
+}
+
+.period{
+    background-color: black;
+    font-size: 80px;
+    border: 1px solid white;
+    padding: 10px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.fs {
+    font-size: 50px;
+}
+
+.name {
+    font-size: 90px;
+}
+
+.fs3 {
+    font-size: 30px;
+}
+
+.red{
+    color: red;
+    font-family: 'crashed';
+}
+
+.red2{
+    color: red;
+    font-family: 'crashed';
+    font-size: 80px;
+}
+
+.green{
+    color: greenyellow;
+    font-family: 'crashed';
+} */

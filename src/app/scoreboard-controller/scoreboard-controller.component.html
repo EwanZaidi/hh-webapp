@@ -1,0 +1,200 @@
+<div class="bg">
+<div class="row ml-4 mr-4 pt-4">
+  <div class="col-4">
+    Player Section
+  </div>
+  <div class="col-4">
+    <div id="black_screen">
+      <div class="row ml-4 mr-4">
+        <div class="col-4 text-center">
+          <h3>HOME</h3>
+          <h3>{{home_score}}</h3>
+        </div>
+        <div class="col-4 text-center">
+          <div id="time">
+            <span *ngIf="display_minute < 10">0</span>{{display_minute}} : <span *ngIf="display_second < 10">0</span>{{display_second}}
+          </div>
+        </div>
+        <div class="col-4 text-center">
+          <h3>GUEST</h3>
+          <h3>{{guest_score}}</h3>
+        </div>
+      </div>
+      <div class="row mt-4 ml-4 mr-4">
+        <div class="col-4 text-center">
+          <h6>FOULS</h6>
+          <h6>{{home_foul}}</h6>
+        </div>
+        <div class="col-4 text-center">
+          <div id="s24">
+            {{all24}}
+          </div>
+        </div>
+        <div class="col-4 text-center">
+          <h6>FOULS</h6>
+          <h6>{{guest_foul}}</h6>
+        </div>
+      </div>
+      <div class="row mt-4 ml-4 mr-4">
+        <div class="col-4 text-center">
+          <h6 *ngIf="ball_pos"><<<</h6>
+        </div>
+        <div class="col-4 text-center">
+          <h6>POS</h6>
+        </div>
+        <div class="col-4 text-center">
+          <h6 *ngIf="!ball_pos">>>></h6>
+        </div>
+      </div>
+      <div class="row mt-4 ml-4 mr-4">
+        <div class="col-4 text-center">
+          <h6 *ngIf="home_bonus">BONUS</h6>
+        </div>
+        <div class="col-4 text-center">
+          <h6>PERIOD<br>{{period}}</h6>
+        </div>
+        <div class="col-4 text-center">
+          <h6 *ngIf="guest_bonus">BONUS</h6>
+        </div>
+      </div>
+    </div>
+    <div id="below_black_screen">
+      <div class="row" id="row_1">
+        <div class="col-2 text-center">
+          <button id="round" class="btn btn-danger bred">CLR
+            <br>SCORE</button>
+        </div>
+        <div class="col-8 text-center">
+          <button id="round" class="btn btn-info bblue" (click)="buzzer()">BUZZER</button>
+        </div>
+        <div class="col-2 text-center">
+          <button id="round" class="btn btn-success bgreen" (click)="changePos()">CHG
+            <br>POS</button>
+        </div>
+      </div>
+      <div class="row" id="row_2">
+        <div class="col-2 text-center">
+          <button id="round" class="btn btn-success bgreen" (click)="homeBonus()">HOME
+            <br>BONUS</button>
+          <br>
+          <br>
+          <button id="round" class="btn btn-success bgreen" (click)="addPeriod()">PERIOD
+            <br>+ 1</button>
+        </div>
+        <div class="col-8 text-center">
+          <button id="round" class="btn btn-success bblue" (click)="resetBonus()">RESET
+            <br>BONUS</button>
+          <br>
+        </div>
+        <div class="col-2 text-center">
+          <button id="round" class="btn btn-success bgreen" (click)="guestBonus()">GUEST
+            <br>BONUS</button>
+          <br>
+          <br>
+          <button id="round" class="btn btn-danger bred" (click)="subPeriod()">PERIOD
+            <br>- 1</button>
+        </div>
+      </div>
+      <div class="row" id="row_2">
+        <div class="col-2 text-center">
+          <button id="round" class="btn btn-success bgreen" (click)="homeScore()">HOME
+            <br>+ 1</button>
+          <br>
+          <br>
+          <button id="round" class="btn btn-danger bred" (click)="homeSubScore()">HOME
+            <br>- 1</button>
+        </div>
+        <div class="col-8 text-center" id="score">
+          SCORE
+        </div>
+        <div class="col-2 text-center">
+          <button id="round" class="btn btn-success bgreen" (click)="guestScore()">GUEST
+            <br>+ 1</button>
+          <br>
+          <br>
+          <button id="round" class="btn btn-danger bred" (click)="guestSubScore()">GUEST
+            <br>- 1</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="row" id="row_4">
+      <div class="col-2 text-center">
+        <button id="round" class="btn btn-success bgreen" (click)="homeFoul()">HOME
+          <br>+ 1</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-danger bred" (click)="homeSubFoul()">HOME
+          <br>- 1</button>
+      </div>
+      <div class="col-8 text-center" id="score">
+        FOULS
+      </div>
+      <div class="col-2 text-center">
+        <button id="round" class="btn btn-success bgreen" (click)="guestFoul()">GUEST
+          <br>+ 1</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-danger bred" (click)="guestSubFoul()">GUEST
+          <br>- 1</button>
+      </div>
+    </div>
+    <div class="row" id="row_2">
+      <div class="col-2 text-center">
+        <button *ngIf="!start" id="round" class="btn btn-danger bgreen" (click)="startTimer()">START</button>
+        <button *ngIf="start" id="round" class="btn btn-danger bred" (click)="stopTimer()">STOP</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-success bgreen" (click)="addMinutes()">MIN
+          <br>+ 1</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-danger bred" (click)="subMinutes()">MIN
+          <br>- 1</button>
+      </div>
+      <div class="col-8 text-center" id="score">
+          TIMER
+      </div>
+      <div class="col-2 text-center">
+        <button id="round" class="btn btn-info bblue" (click)="resetTimer()">RESET
+          <br>TIMER</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-success bgreen" (click)="addSeconds()">SEC
+          <br>+ 1</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-danger bred" (click)="subSeconds()">SEC
+          <br>- 1</button>
+      </div>
+    </div>
+    <div class="row" id="row_2">
+      <div class="col-2 text-center">
+        <button *ngIf="!start" id="round" class="btn btn-danger bgreen" (click)="startTimer()">START</button>
+        <button *ngIf="start" id="round" class="btn btn-danger bred" (click)="stopTimer()">STOP</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-success bgreen" (click)="secAdd()">SEC
+          <br>+ 1</button>
+      </div>
+      <div class="col-8 text-center">
+        <button id="round" class="btn btn-success bgreen" (click)="set14()">14s</button>
+        <br>
+        <br>
+        <h6 style="color:white">24 SEC SHOT CLOCK</h6>
+        <br>
+        <br>
+      </div>
+      <div class="col-2 text-center">
+        <button id="round" class="btn btn-info bblue" (click)="reset24()">RESET
+          <br>TIMER</button>
+        <br>
+        <br>
+        <button id="round" class="btn btn-danger bred" (click)="secSub()">SEC
+          <br>- 1</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

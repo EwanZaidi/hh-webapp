@@ -25,6 +25,10 @@ import { AuthService2 } from './service/auth2.service';
 import { ManageComponent } from './manage/manage.component';
 import { AdminComponent } from './admin/admin.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import { ScoreboardControllerComponent } from './scoreboard-controller/scoreboard-controller.component';
+
+import { ModalModule } from 'ngx-bootstrap';
 
 
 
@@ -41,7 +45,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     RegTeamComponent,
     ManageComponent,
     AdminComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ScoreboardComponent,
+    ScoreboardControllerComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
+    ModalModule.forRoot()
   ],
   providers: [AuthService,AuthService2],
   bootstrap: [AppComponent]
