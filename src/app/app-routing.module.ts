@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:'admin', component: AdminComponent, pathMatch: 'full'},
   {path:'cpd', component: ChangePasswordComponent, pathMatch: 'full'},
   {path:'scoreboard', component: ScoreboardComponent, pathMatch:'full'},
-  {path: 'admin/:id/scoreboard', component: ScoreboardControllerComponent, canActivate: [AuthService]},
+  {path: 'scoreboard/controller', component: ScoreboardControllerComponent, canActivate: [AuthService]},
 ];
 
 

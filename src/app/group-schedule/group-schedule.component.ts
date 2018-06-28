@@ -20,7 +20,7 @@ export class GroupScheduleComponent implements OnInit {
   stage = [{id : 'Group'}, {id: 'Quarterfinal'}, {id: 'Semifinal'}, {id : 'Final'}];
   category = [{id: 'Lelaki'}, {id:'Perempuan'}];
   venue = [{id: 'Court A'}, {id:'Court B'}];
-  zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'},{id: 'Kebangsaan'}];
+  zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'},{id: 'Kebangsaan'}, {id: 'Alumni'}];
   kat;
   zon;
 
@@ -104,6 +104,8 @@ export class GroupScheduleComponent implements OnInit {
       grp_name = 'st'
     }else if(form.value.zone == 'Timur'){
       grp_name = 'tmr'
+    }else if(form.value.zone == 'Alumni'){
+      grp_name = 'alumni'
     }else{
       grp_name = 'kbg'
     }

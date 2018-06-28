@@ -59,7 +59,7 @@ export class ManageComponent implements OnInit {
     this.fs.collection('teams').doc(this.tid).collection('players').add({
       player_name: playerForm.value.name,
       player_jersey: playerForm.value.jersey,
-      player_ic: playerForm.value.ic
+      player_ic: playerForm.value.ic,
     }).then(()=>{
       this.newPlayer = false;
       playerForm.reset();
@@ -94,8 +94,9 @@ export class ManageComponent implements OnInit {
       team_name: registerForm.value.team,
       coach: registerForm.value.coach,
       assistant_coach: registerForm.value.atcoach,
-      zone: 'alumni',
-      is_confirm: true
+      zone: 'Alumni',
+      is_confirm: true,
+      category: 'Lelaki'
     }).then(()=>{
       this.success = true;
     })

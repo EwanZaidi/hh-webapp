@@ -12,12 +12,8 @@
     src: url("../styles/fonts/advanced_led_board-7.ttf") format('truetype');
 } */
 
-@media only screen and (min-width:1080px){
-    .image {
-        width: 150px;
-        height: 150px;
-    }
-    
+@media only screen and (max-width:1499px){
+
     body, .bb {
         background-color: black;
         min-height: 1080px;
@@ -25,323 +21,322 @@
         padding-right: 10px;
         overflow-x: hidden; 
         overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
     }
     
-    .white{
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
         color: white;
+        font-size: 60px;
+        text-align: center;
     }
-    
-    .yellow{
-        color: yellow;
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 580px;
+        min-width: 580px;
+        min-height: 250px;
+        max-height: 250px;
+        left: 540px;
+        border: 3px gray solid;
         font-family: 'crashed';
+        color: yellow;
+        font-size: 150px;
+        border-radius: 30px;
+        padding-left: 50px;
     }
-    
-    .bbox{
-        background-color: black;
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 500px;
+        min-width: 500px;
+        min-height: 400px;
+        max-height: 400px;
+        left:30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
         font-size: 250px;
-        border: 1px solid white;
-        min-width: 160px;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .c24{
-        background-color: black;
-        font-size: 200px;
-        border: 1px solid white;
-        min-width: 160px;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .time{
-        background-color: black;
-        font-size: 200px;
-        border: 1px solid white;
-        min-width: 100%;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .bbox2{
-        background-color: black;
-        font-size: 50px;
-        border: 1px solid white;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    .period{
-        background-color: black;
-        font-size: 80px;
-        border: 1px solid white;
-        padding: 10px;
-        min-width: 120px;
-        text-align: center;
-    }
-    
-    .fs {
-        font-size: 50px;
-    }
-    
-    .name {
-        font-size: 90px;
-    }
-    
-    .fs3 {
-        font-size: 30px;
-    }
-
-    .gray{
-        color: rgb(48, 48, 48);
-    }
-    
-    .red{
-        color: red;
-        font-family: 'crashed';
-    }
-    
-    .red2{
-        color: red;
-        font-family: 'crashed';
-        font-size: 80px;
-    }
-    
-    .green{
-        color: greenyellow;
-        font-family: 'crashed';
-    }
-}
-
-@media only screen and (min-width:1680px){
-    image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .gray{
-        color: rgb(48, 48, 48);
-    }
-    
-    body, .bb {
-        background-color: black;
-        min-height: 1080px;
         padding-left: 10px;
-        padding-right: 10px;
-        overflow-x: hidden; 
-        overflow-y: hidden;
+        border-radius:30px;
+        text-align:center;
     }
-    
-    .white{
-        color: white;
-    }
-    
-    .yellow{
-        color: yellow;
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 500px;
+        min-width: 500px;
+        min-height: 400px;
+        max-height: 400px;
+        left:5px;
+        border: 3px gray solid;
         font-family: 'crashed';
-    }
-
-    .fs4{
-        font-size: 35px;
-    }
-    
-    .bbox{
-        background-color: black;
-        font-size: 295px;
-        border: 1px solid white;
-        width: 97%;
-        text-align: right;
-        height: 400px;
-        line-height: 1.55;
-    }
-    
-    .c24{
-        background-color: black;
-        font-size: 200px;
-        border: 1px solid white;
-        min-width: 160px;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .time{
-        background-color: black;
-        font-size: 180px;
-        border: 1px solid white;
-        min-width: 100%;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .bbox2{
-        background-color: black;
-        font-size: 30px;
-        border: 1px solid white;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    .period{
-        background-color: black;
-        font-size: 80px;
-        border: 1px solid white;
-        padding: 10px;
-        min-width: 120px;
-        text-align: center;
-    }
-
-    .fs4{
-        font-size: 30px;
-    }
-    
-    .fs {
-        font-size: 50px;
-    }
-    
-    .name {
-        font-size: 90px;
-    }
-    
-    .fs3 {
-        font-size: 30px;
-    }
-    
-    .red{
         color: red;
-        font-family: 'crashed';
-    }
-    
-    .red2{
-        color: red;
-        font-family: 'crashed';
-        font-size:55px;
-    }
-    
-    .green{
-        color: greenyellow;
-        font-family: 'crashed';
-    }
-}
-
-@media only screen and (max-width:1679px){
-    .image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .gray{
-        color: rgb(48, 48, 48);
-    }
-    
-    body, .bb {
-        background-color: black;
-        min-height: 1080px;
-        padding-left: 10px;
-        padding-right: 10px;
-        overflow-x: hidden; 
-        overflow-y: hidden;
-    }
-    
-    .white{
-        color: white;
-    }
-    
-    .yellow{
-        color: yellow;
-        font-family: 'crashed';
-    }
-    
-    .bbox{
-        background-color: black;
         font-size: 250px;
-        border: 1px solid white;
-        width: 90%;
-        text-align: center;
-        height: 350px;
-        line-height: 1.4;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
-    
-    .c24{
-        background-color: black;
-        font-size: 200px;
-        border: 1px solid white;
-        min-width: 160px;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .time{
-        background-color: black;
-        font-size: 200px;
-        border: 1px solid white;
-        min-width: 100%;
-        text-align: center;
-        height: 250px;
-    }
-    
-    .bbox2{
-        background-color: black;
+
+    .home-fouls{
+        position: relative;
+        color:white;
         font-size: 25px;
-        border: 1px solid white;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    .period{
-        background-color: black;
-        font-size: 80px;
-        border: 1px solid white;
-        padding: 10px;
-        min-width: 120px;
-        text-align: center;
-    }
-    
-    .fs {
-        font-size: 50px;
-    }
-    
-    .name {
-        font-size: 90px;
-    }
-    
-    .fs3 {
-        font-size: 30px;
     }
 
-    .fs4 {
-        font-size : 24px;
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 25px;
     }
-    
-    .red{
-        color: red;
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 45px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top:70px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
         font-family: 'crashed';
-    }
-    
-    .red2{
-        color: red;
-        font-family: 'crashed';
-        font-size: 80px;
-    }
-    
-    .green{
         color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
         font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
     }
 }
 
-@media only screen and (max-width: 800px){
-    .fs4{
-        font-size: 14px;
+@media only screen and (min-width:1080px) and (max-width:1599px){
+
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
-    .gray{
-        color: rgb(48, 48, 48);
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
     }
 
-    .image {
-        width: 150px;
-        height: 150px;
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
     }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 430px;
+        min-width: 430px;
+        min-height: 250px;
+        max-height: 250px;
+        left: 415px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 135px;
+        border-radius: 30px;
+        padding-left: 1px;
+        line-height: 1.8;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 380px;
+        min-width: 380px;
+        min-height: 300px;
+        max-height: 300px;
+        left: 30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 200px;
+        padding-left: 1px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 380px;
+        min-width: 380px;
+        min-height: 300px;
+        max-height: 300px;
+        left: -9px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 200px;
+        padding-left: 1px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color: white;
+        font-size: 18px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color: white;
+        font-size: 18px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 35px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top:30px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 85px;
+        max-height: 85px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 58px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 85px;
+        max-height: 85px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 58px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 85px;
+        max-height: 85px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 58px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:2048px) and (max-width:3199px){
     
     body, .bb {
         background-color: black;
@@ -350,90 +345,2080 @@
         padding-right: 10px;
         overflow-x: hidden; 
         overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
     }
     
-    .white{
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
         color: white;
+        font-size: 60px;
+        text-align: center;
     }
-    
-    .yellow{
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 656.251px;
+        min-width: 656.251px;
+        min-height: 250px;
+        max-height: 250px;
+        left: 688px;
+        border: 3px gray solid;
+        font-family: 'crashed';
         color: yellow;
+        font-size: 186px;
+        border-radius:30px;
+        padding-left:35px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 550px;
+        min-width: 550px;
+        min-height: 400px;
+        max-height: 400px;
+        left:30px;
+        border: 3px gray solid;
         font-family: 'crashed';
-    }
-    
-    .bbox{
-        background-color: black;
-        font-size: 120px;
-        border: 1px solid white;
-        min-width: 160px;
-        text-align: center;
-        height: 200px;
-        line-height: 1.7;
-    }
-    
-    .c24{
-        background-color: black;
-        font-size: 100px;
-        border: 1px solid white;
-        min-width: 160px;
-        text-align: center;
-        height: 150px;
-    }
-    
-    .time{
-        background-color: black;
-        font-size: 80px;
-        border: 1px solid white;
-        min-width: 100%;
-        text-align: center;
-        height: 250px;
-        line-height: 3;
-    }
-    
-    .bbox2{
-        background-color: black;
-        font-size: 15px;
-        border: 1px solid white;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    .period{
-        background-color: black;
-        font-size: 20px;
-        border: 1px solid white;
-        padding: 10px;
-        min-width: 60px;
-        text-align: center;
-    }
-    
-    .fs {
-        font-size: 15px;
-    }
-    
-    .name {
-        font-size: 50px;
-    }
-    
-    .fs3 {
-        font-size: 15px;
-    }
-    
-    .red{
         color: red;
-        font-family: 'crashed';
+        font-size: 280px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
-    
-    .red2{
-        color: red;
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 550px;
+        min-width: 550px;
+        min-height: 400px;
+        max-height: 400px;
+        left:30px;
+        border: 3px gray solid;
         font-family: 'crashed';
+        color: red;
+        font-size: 280px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
         font-size: 30px;
     }
-    
-    .green{
-        color: greenyellow;
-        font-family: 'crashed';
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 30px;
     }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 50px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top:60px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width:3200px){
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1500px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 1039.980px;
+        min-width: 1039.980px;
+        min-height: 396px;
+        max-height: 396px;
+        left: 1071px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 276px;
+        border-radius: 30px;
+        padding-left: 78px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -250px;
+        background-color: rgb(31,31,31);
+        max-width: 550px;
+        min-width: 950px;
+        min-height: 544px;
+        max-height: 496px;
+        left: 30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 380px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -250px;
+        background-color: rgb(31,31,31);
+        max-width: 550px;
+        min-width: 950px;
+        min-height: 544px;
+        max-height: 496px;
+        left: 30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 380px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color: white;
+        font-size: 54px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color: white;
+        font-size: 54px;
+    }
+
+    .period{
+        position: relative;
+        color: white;
+        font-size: 93px;
+        margin-top: -33px;
+    }
+
+    .margin-top-custom{
+        margin-top:60px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width:1920px) and (max-width:2047px){
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 700px;
+        min-width: 700px;
+        min-height: 250px;
+        max-height: 250px;
+        left: 600px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 200px;
+        border-radius:30px;
+        padding-left:35px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 550px;
+        min-width: 550px;
+        min-height: 400px;
+        max-height: 400px;
+        left:30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 280px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 550px;
+        min-width: 550px;
+        min-height: 400px;
+        max-height: 400px;
+        left:30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 280px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 30px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 30px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 50px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top:60px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width:1680px) and (max-width:1919px){
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 580px;
+        min-width: 580px;
+        min-height: 250px;
+        max-height: 250px;
+        left: 540px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 150px;
+        border-radius: 30px;
+        padding-left: 50px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 500px;
+        min-width: 500px;
+        min-height: 400px;
+        max-height: 400px;
+        left:30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 250px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 500px;
+        min-width: 500px;
+        min-height: 400px;
+        max-height: 400px;
+        left:5px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 250px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 25px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 25px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 45px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top:70px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width:1600px) and (max-width:1679px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 506.656px;
+        min-width: 506.656px;
+        min-height: 216px;
+        max-height: 216px;
+        left: 540px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 140px;
+        border-radius: 30px;
+        padding-left: 30px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 500px;
+        min-width: 500px;
+        min-height: 380px;
+        max-height: 380px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 250px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 500px;
+        min-width: 500px;
+        min-height: 380px;
+        max-height: 380px;
+        left:5px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 250px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 24px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 24px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 45px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top: 48px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 130px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 90px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1440px) and (max-width:1599px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 453.328px;
+        min-width: 453.328px;
+        min-height: 207px;
+        max-height: 207px;
+        left: 485px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 125px;
+        border-radius: 30px;
+        padding-left: 30px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 425px;
+        min-width: 425px;
+        min-height: 321px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 210px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 425px;
+        min-width: 425px;
+        min-height: 321px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 210px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 21px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 21px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 38px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top: 27px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1400px) and (max-width:1439px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 440px;
+        min-width: 440px;
+        min-height: 207px;
+        max-height: 207px;
+        left: 470px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 125px;
+        border-radius: 30px;
+        padding-left: 30px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 425px;
+        min-width: 425px;
+        min-height: 321px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 210px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 425px;
+        min-width: 425px;
+        min-height: 321px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 210px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 20px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 20px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 38px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top: 27px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1366px) and (max-width:1399px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 428.656px;
+        min-width: 428.656px;
+        min-height: 207px;
+        max-height: 207px;
+        left: 458px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 125px;
+        border-radius: 30px;
+        padding-left: 15px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 405px;
+        min-width: 405px;
+        min-height: 306px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 200px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 405px;
+        min-width: 405px;
+        min-height: 306px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 200px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 20px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 20px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 36px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top: 15px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1360px) and (max-width:1365px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 428.656px;
+        min-width: 428.656px;
+        min-height: 207px;
+        max-height: 207px;
+        left: 458px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 125px;
+        border-radius: 30px;
+        padding-left: 15px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 405px;
+        min-width: 405px;
+        min-height: 306px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 200px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 405px;
+        min-width: 405px;
+        min-height: 306px;
+        max-height: 321px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 200px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 20px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 20px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 36px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top: 15px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 65px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1280px) and (max-width:1359px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 400.178px;
+        min-width: 400.178px;
+        min-height: 207px;
+        max-height: 207px;
+        left: 430px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 119px;
+        border-radius: 30px;
+        padding-left: 12px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 380px;
+        min-width: 380px;
+        min-height: 291px;
+        max-height: 291px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 190px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 380px;
+        min-width: 380px;
+        min-height: 291px;
+        max-height: 291px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 190px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color:white;
+        font-size: 18px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color:white;
+        font-size: 18px;
+    }
+
+    .period{
+        position: relative;
+        color:white;
+        font-size: 33px;
+        margin-top: -14px;
+    }
+
+    .margin-top-custom{
+        margin-top: 15px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 94px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 59px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 94px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 59px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 94px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 59px;
+        border-radius: 30px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1152px) and (max-width:1219px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 45px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 357.328px;
+        min-width: 357.328px;
+        min-height: 193px;
+        max-height: 207px;
+        left: 387px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 104px;
+        border-radius: 30px;
+        padding-left: 12px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 330px;
+        min-width: 330px;
+        min-height: 253px;
+        max-height: 253px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 165px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -150px;
+        background-color: rgb(31,31,31);
+        max-width: 330px;
+        min-width: 330px;
+        min-height: 253px;
+        max-height: 253px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 165px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{    
+        position: relative;
+        color: white;
+        font-size: 16px;
+    }
+
+    .away-fouls{ 
+        position: relative;
+        color: white;
+        font-size: 16px;
+    }
+
+    .period{
+        position: relative;
+        color: white;
+        font-size: 29px;
+        margin-top: -10px;
+    }
+
+    .margin-top-custom{
+        margin-top: 15px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width:1024px) and (max-width:1151px){
+    
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 35px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 314.656px;
+        min-width: 314.656px;
+        min-height: 144px;
+        max-height: 144px;
+        left: 345px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 92px;
+        border-radius: 30px;
+        padding-left: 12px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -75px;
+        background-color: rgb(31,31,31);
+        max-width: 290px;
+        min-width: 290px;
+        min-height: 204px;
+        max-height: 204px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 132px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -75px;
+        background-color: rgb(31,31,31);
+        max-width: 290px;
+        min-width: 290px;
+        min-height: 204px;
+        max-height: 204px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 132px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{    
+        position: relative;
+        color: white;
+        font-size: 13px;
+    }
+
+    .away-fouls{ 
+        position: relative;
+        color: white;
+        font-size: 13px;
+    }
+
+    .period{
+        position: relative;
+        color: white;
+        font-size: 24px;
+        margin-top: -9px;
+    }
+
+    .margin-top-custom{
+        margin-top: 43px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width: 800px) and (max-width:1023px){
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1080px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        min-height: 100px;
+        position: relative;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 35px;
+        text-align: center;
+	    border-bottom: 100px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 314.656px;
+        min-width: 314.656px;
+        min-height: 144px;
+        max-height: 144px;
+        left: 345px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 92px;
+        border-radius: 30px;
+        padding-left: 12px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -75px;
+        background-color: rgb(31,31,31);
+        max-width: 290px;
+        min-width: 290px;
+        min-height: 204px;
+        max-height: 204px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 132px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -75px;
+        background-color: rgb(31,31,31);
+        max-width: 290px;
+        min-width: 290px;
+        min-height: 204px;
+        max-height: 204px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 132px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{    
+        position: relative;
+        color: white;
+        font-size: 13px;
+    }
+
+    .away-fouls{ 
+        position: relative;
+        color: white;
+        font-size: 13px;
+    }
+
+    .period{
+        position: relative;
+        color: white;
+        font-size: 24px;
+        margin-top: -9px;
+    }
+
+    .margin-top-custom{
+        margin-top: 43px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 59px;
+        max-height: 94px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 36px;
+        border-radius: 14px;
+        text-align: center;
+    }
+    
 }
 /* .image {
     width: 150px;

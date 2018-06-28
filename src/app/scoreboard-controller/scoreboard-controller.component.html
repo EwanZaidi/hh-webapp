@@ -11,9 +11,10 @@
           <h3>{{home_score}}</h3>
         </div>
         <div class="col-4 text-center">
-          <div id="time">
-            <span *ngIf="display_minute < 10">0</span>{{display_minute}} : <span *ngIf="display_second < 10">0</span>{{display_second}}
+          <div id="time" *ngIf="allsecond > -1; else setzero">
+            <span *ngIf="display_minute < 10; else setzero">0</span>{{display_minute}} : <span *ngIf="display_second < 10">0</span>{{display_second}}
           </div>
+          <ng-template #setzero><div *ngIf="allsecond <= -1" id="time">00 : 00</div></ng-template>
         </div>
         <div class="col-4 text-center">
           <h3>GUEST</h3>
@@ -26,9 +27,11 @@
           <h6>{{home_foul}}</h6>
         </div>
         <div class="col-4 text-center">
-          <div id="s24">
+          <div id="s24" *ngIf="all24 > -1; else settimerzero">
+            <span *ngIf="all24 < 10">0</span>
             {{all24}}
           </div>
+          <ng-template #settimerzero><div *ngIf="all24 <= -1" id="s24">0</div></ng-template>
         </div>
         <div class="col-4 text-center">
           <h6>FOULS</h6>
@@ -61,7 +64,7 @@
     <div id="below_black_screen">
       <div class="row" id="row_1">
         <div class="col-2 text-center">
-          <button id="round" class="btn btn-danger bred">CLR
+          <button id="round" class="btn btn-danger bred" (click)="clearPoints()">CLR
             <br>SCORE</button>
         </div>
         <div class="col-8 text-center">
@@ -197,4 +200,24 @@
     </div>
   </div>
 </div>
+</div>
+
+<div bsModal #newModal="bs-modal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

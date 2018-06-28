@@ -17,7 +17,7 @@ export class ResultComponent implements OnInit {
 
   result=[];
   editinput=[];
-  zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'},{id: 'Kebangsaan'}];
+  zone = [{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'},{id: 'Kebangsaan'}, {id: 'Alumni'}];
   uid;
   admin : Boolean = false;
   test: any;

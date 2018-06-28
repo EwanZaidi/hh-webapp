@@ -42,7 +42,7 @@ export class ScoreboardControllerComponent implements OnInit {
   buzz: Boolean;
 
   constructor(private route: ActivatedRoute, private fs: AngularFirestore) {
-    this.key = this.route.snapshot.params['id'];
+    // this.key = this.route.snapshot.params['id'];
     this.s = this.fs.collection('scoreboard').doc('alumni1');
     this.seconds = this.s.snapshotChanges().map(x => {
       const data = x.payload.data();
@@ -65,6 +65,16 @@ export class ScoreboardControllerComponent implements OnInit {
       this.home_bonus = d.data.home_bonus;
       this.guest_bonus = d.data.guest_bonus;
       this.buzz = d.data.buzz;
+      
+      if(this.all24 == 0){
+        this.buzzer();
+      }else if(this.allsecond == 0){
+        this.buzzer();
+      }else if(this.allsecond < 0){
+        clearInterval(this.timer);
+        clearInterval(this.timer24);
+      }
+
     });
 
 
@@ -80,14 +90,18 @@ export class ScoreboardControllerComponent implements OnInit {
     this.fs.collection('scoreboard').doc('alumni1').update({
       buzz : true
     }).then(() => {
-      setTimeout(() => {
-        this.fs.collection('scoreboard').doc('alumni1').update({
-          buzz : false
-        })
-      },2000)
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        buzz : false
+      })
     })
   }
 
+  clearPoints(){
+    this.fs.collection('scoreboard').doc('alumni1').update({
+      home_score : 0,
+      guest_score: 0
+    })
+  }
 
   startTimer() {
     this.timer =  setInterval(() => {
@@ -168,7 +182,7 @@ export class ScoreboardControllerComponent implements OnInit {
   reset24(){
     this.fs.collection('scoreboard').doc('alumni1').update({
       timer : 24
-    })
+    });
   }
 
   set14(){
@@ -211,6 +225,10 @@ export class ScoreboardControllerComponent implements OnInit {
   homeFoul(){
     this.fs.collection('scoreboard').doc('alumni1').update({
       home_foul: this.home_foul+1
+    }).then(() => {
+      if(this.home_foul > 4){
+        this.guestBonus()
+      }
     })
   }
 
@@ -223,6 +241,10 @@ export class ScoreboardControllerComponent implements OnInit {
   guestFoul(){
     this.fs.collection('scoreboard').doc('alumni1').update({
       guest_foul: this.guest_foul+1
+    }).then(() => {
+      if(this.guest_foul > 4){
+        this.homeBonus()
+      };
     })
   }
 

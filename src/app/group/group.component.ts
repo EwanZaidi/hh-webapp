@@ -29,11 +29,13 @@ export class GroupComponent implements OnInit {
   findteam: Boolean = false;
   register: Boolean = false;
   
-  zone = [{id: '----'},{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}, {id: 'Kebangsaan'}];
+  zone = [{id: '----'},{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}, {id: 'Kebangsaan'}, {id: 'Alumni'}];
 
   teamName;
   add : Boolean = false;
   err : Boolean = false;
+
+  cpy: Observable<any>;
 
   constructor(private fs: AngularFirestore, private auth: AngularFireAuth, private router: Router) {
   }
@@ -114,6 +116,8 @@ export class GroupComponent implements OnInit {
       grp_name = 'SLT';
     }else if(form.value.zone == 'Timur'){
       grp_name = 'TMR';
+    }else if(form.value.zone == 'Alumni'){
+      grp_name = 'ALM'
     }else{
       grp_name = 'KBG'
     }

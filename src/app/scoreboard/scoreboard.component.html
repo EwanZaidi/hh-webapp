@@ -1,111 +1,69 @@
 <div class="bb">
   <!-- <div class="container"> -->
-      <div class="row">
+      <div class="row gray-border">
+        <div class="col-md-5 trapezium">
+          HOME
+        </div>
+        <div class="col-md-2 triangle">
+          TIME
+        </div>
+        <div class="col-md-5 trapezium">
+          AWAY
+        </div>
 
-        <!-- HOME PANEL / LEFT PANEL -->
-        <div class="col-4">
-          <div class="row justify-content-center mt-4">
-            <h2 class="white name"><span class="red2"><i class="fas fa-caret-left" *ngIf="ball_pos"></i><i class="fas fa-caret-left" *ngIf="ball_pos"></i></span><b><i>SDAR</i></b></h2>
-          </div>
-          <div class="row justify-content-center">
-            <h2 class="red bbox">{{home_score}}</h2>
-          </div>
-          <div class="row justify-content-center">
-            <h2 class="gray fs"><span *ngIf="!home_bonus">BONUS</span></h2>
-            <h2 class="white fs"><span *ngIf="home_bonus">BONUS</span></h2>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <h2 class="white fs4 text-center">NO</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="white fs4 text-center">F</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="white fs4 text-center">PTS</h2>
-            </div>
-          </div>
-          <div class="row" *ngFor="let h of home_players | async">
-            <div class="col-4 justify-content-center">
-              <h2 class="bbox2 yellow">{{h.jersey}}</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="bbox2 red">{{h.fouls}}</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="bbox2 green">{{h.points}}</h2>
-            </div>
-          </div>
-        </div>
-      
-        <!-- CENTER PANEL -->
-        <div class="col-4">
-          <div class="row justify-content-center mt-4">
-              <div class="time yellow"><span *ngIf="display_minute<10">0</span>{{display_minute}}:<span *ngIf="display_second<10">0</span>{{display_second}}</div>
-          </div>
-          <div class="row justify-content-center mt-4">
-            <div class="col-4">
-              <div class="white fs3 text-center">TEAM<br/>FOULS</div>
-            </div>
-            <div class="col-4">
-              <div class="white fs text-center">PERIOD</div>
-            </div>
-            <div class="col-4">
-              <div class="white fs3 text-center">TEAM<br/>FOULS</div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-4">
-              <div class="period green">{{home_foul}}</div>
-            </div>
-            <div class="col-4">
-              <div class="period green">{{period}}</div>
-            </div>
-            <div class="col-4">
-              <div class="period green">{{guest_foul}}</div>
-            </div>
-          </div>
-          <div class="row justify-content-center mt-4">
-              <div class="c24 yellow">{{all24}}</div>
-          </div>
-        </div>
-      
-        <!-- AWAY PANEL / RIGHT PANEL -->
-        <div class="col-4">
-          <div class="row justify-content-center mt-4">
-            <h2 class="white name"><b><i>SESMA</i></b><span class="red2"><i class="fas fa-caret-right" *ngIf="!ball_pos"></i><i class="fas fa-caret-right" *ngIf="!ball_pos"></i></span></h2>
-          </div>
-          <div class="row justify-content-center">
-            <h2 class="red bbox">{{guest_score}}</h2>
-          </div>
-          <div class="row justify-content-center">
-            <h2 class="gray fs"><span *ngIf="!guest_bonus">BONUS</span></h2>
-            <h2 class="white fs"><b><span *ngIf="guest_bonus">BONUS</span> </b></h2>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <h2 class="white fs4 text-center">NO</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="white fs4 text-center">F</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="white fs4 text-center">PTS</h2>
-            </div>
-          </div>
-          <div class="row" *ngFor="let h of guest_players | async">
-            <div class="col-4 justify-content-center">
-              <h2 class="bbox2 yellow">{{h.jersey}}</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="bbox2 red">{{h.fouls}}</h2>
-            </div>
-            <div class="col-4">
-              <h2 class="bbox2 green">{{h.points}}</h2>
-            </div>
-          </div>
       </div>
-  <!-- </div> -->
+      <div class="float-center">
+        <span *ngIf="display_minute < 10">0</span>{{display_minute}}:<span *ngIf="display_second < 10">0</span>{{display_second}}
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+            <div class="home-score">
+                <!-- {{home_score}} --> 000
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row margin-top-custom">
+            <div class="col-md-4">
+              <div class="home-fouls">
+                TEAM FOULS
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="period text-center">
+                PERIOD
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="away-fouls text-right">
+                TEAM FOULS
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="home-fouls-box">
+                <!-- {{home_foul}} --> 00
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="period-box">
+                <!-- {{period}} --> 00
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="away-fouls-box">
+                <!-- {{guest_foul}} --> 00
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="away-score">
+                <!-- {{guest_score}} --> 000
+            </div>
+        </div>
+      </div>
 </div>
 
 
