@@ -28,11 +28,16 @@ export class ScoreboardComponent implements OnInit {
   display_minute: number;
   display_second: number;
 
+  home = 'HOME';
+  away = 'AWAY';
+
   mySound = new Audio("../../assets/sounds/buzz.wav");
   sound: Boolean;
 
   guest_bonus: Boolean;
   home_bonus: Boolean;
+
+  input : boolean = false;
 
 
 
@@ -52,9 +57,6 @@ export class ScoreboardComponent implements OnInit {
       this.home_bonus = d.home_bonus;
       this.guest_bonus = d.guest_bonus;
       this.sound = d.buzz;
-      if(this.sound == true){
-        this.mySound.play();
-      }
     });
 
 

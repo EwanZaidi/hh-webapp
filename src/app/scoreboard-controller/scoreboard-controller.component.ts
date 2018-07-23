@@ -41,6 +41,8 @@ export class ScoreboardControllerComponent implements OnInit {
 
   buzz: Boolean;
 
+  mySound = new Audio("../../assets/sounds/buzz.wav");
+
   constructor(private route: ActivatedRoute, private fs: AngularFirestore) {
     // this.key = this.route.snapshot.params['id'];
     this.s = this.fs.collection('scoreboard').doc('alumni1');
@@ -67,9 +69,15 @@ export class ScoreboardControllerComponent implements OnInit {
       this.buzz = d.data.buzz;
       
       if(this.all24 == 0){
+        this.mySound.play();
         this.buzzer();
+        clearInterval(this.timer);
+        clearInterval(this.timer24);
       }else if(this.allsecond == 0){
+        this.mySound.play();
         this.buzzer();
+        clearInterval(this.timer);
+        clearInterval(this.timer24);
       }else if(this.allsecond < 0){
         clearInterval(this.timer);
         clearInterval(this.timer24);
@@ -87,13 +95,7 @@ export class ScoreboardControllerComponent implements OnInit {
   }
 
   buzzer(){
-    this.fs.collection('scoreboard').doc('alumni1').update({
-      buzz : true
-    }).then(() => {
-      this.fs.collection('scoreboard').doc('alumni1').update({
-        buzz : false
-      })
-    })
+    this.mySound.play();
   }
 
   clearPoints(){

@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as firebase from 'firebase';
+import {Upload} from '../upload.model';
+import {UploadService} from '../service/upload.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-manage',
@@ -18,15 +21,19 @@ export class ManageComponent implements OnInit {
   pid;
   success : Boolean = false;
 
+  file:any;
+
   teams: AngularFirestoreDocument<any>;
   team: Observable<any>;
 
   oldPlayers: AngularFirestoreCollection<any>;
   oldPlayer: Observable<any>;
 
+  uploading: Upload;
+
   player: Observable<any>;
 
-  constructor(private fs: AngularFirestore, private aRouter: ActivatedRoute, private router: Router) {
+  constructor(private fs: AngularFirestore, private aRouter: ActivatedRoute, private router: Router, private uSvc: UploadService) {
 
     this.tid = this.aRouter.snapshot.params['id'];
     
@@ -47,20 +54,33 @@ export class ManageComponent implements OnInit {
   ngOnInit() {
   }
 
+  surat(event){
+    this.file = event.target.files;
+  }
+
   eplayer(id){
     this.pid = id;
     let p : AngularFirestoreDocument<any> = this.fs.collection('teams').doc(this.tid).collection('players').doc(id);
     this.player = p.valueChanges();
 
-    this.uplayer = true;
+    this.player.subscribe();
   }
 
   addedplayer(playerForm){
+    // console.log(playerForm.value.name,playerForm.value.jersey,playerForm.value.ic);
+    
     this.fs.collection('teams').doc(this.tid).collection('players').add({
       player_name: playerForm.value.name,
       player_jersey: playerForm.value.jersey,
       player_ic: playerForm.value.ic,
-    }).then(()=>{
+    }).then((x)=>{
+      const filesToUpload = this.file;
+      const filesIndex = _.range(filesToUpload.length);
+      _.each(filesIndex, (idx) => {
+        this.uploading = new Upload(filesToUpload[idx]);
+        this.uSvc.uploadImage(this.uploading,x.id,this.tid);
+      });
+      
       this.newPlayer = false;
       playerForm.reset();
     })
@@ -85,6 +105,12 @@ export class ManageComponent implements OnInit {
       player_jersey: playerForm.value.jersey,
       player_ic: playerForm.value.ic
     }).then(()=>{
+      const filesToUpload = this.file;
+      const filesIndex = _.range(filesToUpload.length);
+      _.each(filesIndex, (idx) => {
+        this.uploading = new Upload(filesToUpload[idx]);
+        this.uSvc.uploadImage(this.uploading,this.pid,this.tid);
+      });
       this.uplayer = false;
     })
   }

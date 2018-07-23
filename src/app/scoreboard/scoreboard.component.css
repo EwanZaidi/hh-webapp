@@ -37,6 +37,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -198,6 +199,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -336,7 +338,7 @@
     
 }
 
-@media only screen and (min-width:2048px) and (max-width:3199px){
+@media only screen and (min-width:2048px) and (max-width:2735px){
     
     body, .bb {
         background-color: black;
@@ -361,6 +363,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -372,6 +375,24 @@
 	    border-bottom: 100px solid rgb(47,75,132);
         border-left: 30px solid rgb(32, 49, 83);
         border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .sec-24{
+        margin-top: 40px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        left: 170px;
+        color: red;
+        font-size: 186px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
     }
 
     .float-center{
@@ -498,6 +519,197 @@
 
 }
 
+@media only screen and (min-width:2736px) and (max-width:3199px){
+    
+    body, .bb {
+        background-color: black;
+        min-height: 1824px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gray-border{
+        border: 3px gray solid;
+        max-height: 150px;
+        position: relative;
+        height: 150px;
+    }
+    
+    .trapezium{
+        background-color: rgb(32, 49, 83);
+        width: 100%;
+        color: white;
+        font-size: 90px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .image-rel{
+        position: relative;
+        margin-top: -350px;
+    }
+
+    .img-100{
+        width:80%;
+    }
+
+    .triangle{
+        width: 100%;
+        height: 0;
+        color: white;
+        font-size: 70px;
+        text-align: center;
+        border-bottom: 150px solid rgb(47,75,132);
+        border-left: 30px solid rgb(32, 49, 83);
+        border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .sec-24{
+        margin-top: 40px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        left: 220px;
+        color: red;
+        font-size: 255px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .float-center{
+        z-index: 10;
+        margin-top: -35px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 885px;
+        min-width: 885px;
+        min-height: 365px;
+        max-height: 365px;
+        left: 920px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: yellow;
+        font-size: 255px;
+        border-radius: 30px;
+        padding-left: 35px;
+    }
+
+    .home-score{
+        position: relative;
+        margin-top: -220px;
+        background-color: rgb(31,31,31);
+        max-width: 800px;
+        min-width: 800px;
+        min-height: 600px;
+        max-height: 600px;
+        left: 30px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 400px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-score{
+        position: relative;
+        margin-top: -220px;
+        background-color: rgb(31,31,31);
+        max-width: 800px;
+        min-width: 800px;
+        min-height: 600px;
+        max-height: 600px;
+        left: 60px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: red;
+        font-size: 400px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .home-fouls{
+        position: relative;
+        color: white;
+        font-size: 45px;
+    }
+
+    .away-fouls{
+        position: relative;
+        color: white;
+        font-size: 45px;
+    }
+
+    .period{
+        position: relative;
+        color: white;
+        font-size: 80px;
+        margin-top: -20px;
+    }
+
+    .margin-top-custom{
+        margin-top:96px;
+    }
+
+    .home-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 185px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 120px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .away-fouls-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 185px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 120px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .period-box{
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 185px;
+        max-height: 130px;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        color: greenyellow;
+        font-size: 120px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+}
+
 @media only screen and (min-width:3200px){
     
     body, .bb {
@@ -516,6 +728,24 @@
         min-height: 100px;
         position: relative;
     }
+
+    .sec-24{
+        margin-top: 40px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        left: 260px;
+        color: red;
+        font-size: 276px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
     
     .trapezium{
         background-color: rgb(32, 49, 83);
@@ -523,6 +753,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -673,6 +904,24 @@
         padding-bottom: 10px;
     }
 
+    .sec-24{
+        margin-top: 40px;
+        position: relative;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        border: 3px gray solid;
+        font-family: 'crashed';
+        left: 160px;
+        color: red;
+        font-size: 200px;
+        padding-left: 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
     .gray-border{
         border: 3px gray solid;
         min-height: 100px;
@@ -685,6 +934,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -847,6 +1097,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -858,6 +1109,25 @@
 	    border-bottom: 100px solid rgb(47,75,132);
         border-left: 30px solid rgb(32, 49, 83);
         border-right: 30px solid rgb(32, 49, 83);
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:140px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 150px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .float-center{
@@ -1010,6 +1280,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -1039,6 +1310,25 @@
         font-size: 140px;
         border-radius: 30px;
         padding-left: 30px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:130px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 140px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -1172,6 +1462,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -1201,6 +1492,25 @@
         font-size: 125px;
         border-radius: 30px;
         padding-left: 30px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:125px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 125px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -1333,6 +1643,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -1362,6 +1673,25 @@
         font-size: 125px;
         border-radius: 30px;
         padding-left: 30px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:115px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 125px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -1493,6 +1823,7 @@
         width: 100%;
         color: white;
         font-size: 60px;
+        cursor: pointer;
         text-align: center;
     }
 
@@ -1523,6 +1854,25 @@
         font-size: 125px;
         border-radius: 30px;
         padding-left: 15px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:110px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 125px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -1653,6 +2003,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -1682,6 +2033,25 @@
         font-size: 125px;
         border-radius: 30px;
         padding-left: 15px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:108px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 125px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -1812,6 +2182,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -1841,6 +2212,25 @@
         font-size: 119px;
         border-radius: 30px;
         padding-left: 12px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:100px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 119px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -1971,6 +2361,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -2000,6 +2391,25 @@
         font-size: 104px;
         border-radius: 30px;
         padding-left: 12px;
+    }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:90px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 104px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
     }
 
     .home-score{
@@ -2130,6 +2540,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{
@@ -2160,6 +2571,26 @@
         border-radius: 30px;
         padding-left: 12px;
     }
+
+    .sec-24{
+        position: relative;
+        margin-top:20px;
+        background-color: rgb(31,31,31);
+        max-width: 50%;
+        min-width: 50%;
+        min-height: auto;
+        max-height: auto;
+        /* left:30px; */
+        border: 3px gray solid;
+        left:80px;
+        font-family: 'crashed';
+        color: red;
+        font-size: 92px;
+        padding-left: 10px;
+        border-radius:30px;
+        text-align:center;
+    }
+
 
     .home-score{
         position: relative;
@@ -2288,6 +2719,7 @@
         color: white;
         font-size: 60px;
         text-align: center;
+        cursor: pointer;
     }
 
     .triangle{

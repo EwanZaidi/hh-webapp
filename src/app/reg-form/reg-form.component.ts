@@ -29,9 +29,11 @@ export class RegFormComponent implements OnInit {
   teamlist: Boolean = true;
 
   ids:any;
+  surat_image;
 
   team: Observable<any>;
   updateId;
+  verified : Array<Boolean>;
   oldPlayer: Observable<any>;
   uplayer: Boolean = false;
   playerid;
@@ -68,6 +70,10 @@ export class RegFormComponent implements OnInit {
     let addnewPlayer = { name: player.value.name, jersi: player.value.jersi };
     this.newPlayer.push(addnewPlayer);
     this.playerlist = !this.playerlist;
+  }
+
+  seeSurat(surat){
+    this.surat_image = surat;
   }
 
   cancelplayer() {
@@ -159,10 +165,32 @@ export class RegFormComponent implements OnInit {
         const data = pl.payload.doc.data();
         const id = pl.payload.doc.id;
 
+        if(data.verify_status == null){
+          data.verify_status = false;
+        }
+
+        data.status = data.verify_status?data.verify_status:false;
+        data.image = data.surat?data.surat:'';
+
         return { data, id };
       })
     })
 
+    this.oldPlayer.subscribe(x => {
+      let i = 0;
+      x.forEach(y => {
+        this.verifyPlayer[i] = y.data.status;
+        i++
+      })
+    })
+
+  }
+
+  verifyPlayer(i,id){
+    this.verifyPlayer[i] = !this.verifyPlayer[i];
+    this.firestore.collection('teams').doc(this.updateId).collection('players').doc(id).update({
+      verify_status : this.verifyPlayer[i]
+    })
   }
 
   UpdateTeam(registerForm: NgForm) {

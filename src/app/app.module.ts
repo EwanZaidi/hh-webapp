@@ -22,6 +22,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { EditScoreComponent } from './edit-score/edit-score.component';
 import { RegTeamComponent } from './reg-team/reg-team.component';
 import { AuthService2 } from './service/auth2.service';
+import { UploadService } from './service/upload.service';
 import { ManageComponent } from './manage/manage.component';
 import { AdminComponent } from './admin/admin.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
@@ -59,7 +60,7 @@ import { ModalModule } from 'ngx-bootstrap';
     AngularFirestoreModule,
     ModalModule.forRoot()
   ],
-  providers: [AuthService,AuthService2],
+  providers: [AuthService,AuthService2, UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

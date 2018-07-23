@@ -44,7 +44,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   regSubmit(regForm){
-    console.log(regForm.value.email, regForm.value.password);
     
     let reg : AngularFirestoreCollection<any>= this.fs.collection('login', ref => ref.where('username', '==', regForm.value.email))
     let register : Observable<any> = reg.valueChanges();

@@ -184,13 +184,14 @@
       <div class="col-md-2">#</div>
       <div class="col-md-4">Name</div>
       <div class="col-md-4">Jersi</div>
+      <div class="col-md-2">Verified</div>
     </div>
     <div *ngFor="let n of oldPlayer | async; let i = index">
       <div class="row text-center">
         <div class="col-md-2">{{i + 1}}</div>
-        <div class="col-md-4">{{n.data.player_name}}</div>
+        <div class="col-md-4"><span style="cursor: pointer" (click)="seeSurat(n.data.image)" data-toggle="modal" data-target="#myModal">{{n.data.player_name}}</span></div>
         <div class="col-md-4">{{n.data.player_jersey}}</div>
-        <div class="col-md-2"><button class="btn btn-primary" (click)="eplayer(n.id)">Edit</button></div>
+        <div class="col-md-2"><button class="btn btn-primary btn-sm" (click)="eplayer(n.id)">Edit</button><button *ngIf="verifyPlayer[i]" class="btn btn-success btn-sm" (click)="verifyPlayer(i,n.id)"><i class="fa fa-check"></i></button><button *ngIf="!verifyPlayer[i]" class="btn btn-danger btn-sm" (click)="verifyPlayer(i,n.id)"><i class="fa fa-times"></i></button></div>
       </div>
     </div>
     <div *ngFor="let n of newPlayer; let i = index">
@@ -296,5 +297,26 @@
         </tbody>
       </table>
     </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <h4 class="modal-title">Sijil Tamat Sekolah</h4>
+      </div>
+      <div class="modal-body">
+        <img *ngIf="surat_image !== null" [src]='surat_image' style="width:300px; height:auto"/>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger mt-4" (click)="cancelplayer()" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
   </div>
 </div>

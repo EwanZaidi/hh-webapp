@@ -2,13 +2,15 @@
   <!-- <div class="container"> -->
       <div class="row gray-border">
         <div class="col-md-5 trapezium">
-          HOME
+          <span *ngIf="!input" (click)="input = !input">{{home}}</span>
+          <span *ngIf="input"><input type="text" class="form-control" [(ngModel)]="home" (keyup.enter)="input = !input"></span>
         </div>
         <div class="col-md-2 triangle">
           TIME
         </div>
-        <div class="col-md-5 trapezium">
-          AWAY
+        <div class="col-md-5 trapezium" >
+          <span *ngIf="!input" (click)="input = !input">{{away}}</span>
+          <span *ngIf="input"><input type="text" class="form-control" [(ngModel)]="away" (keyup.enter)="input = !input"></span>
         </div>
 
       </div>
@@ -19,7 +21,7 @@
       <div class="row">
         <div class="col-md-4">
             <div class="home-score">
-                <!-- {{home_score}} --> 000
+                {{home_score}}
             </div>
         </div>
         <div class="col-md-4">
@@ -43,25 +45,49 @@
           <div class="row">
             <div class="col-md-4">
               <div class="home-fouls-box">
-                <!-- {{home_foul}} --> 00
+                {{home_foul}}
               </div>
             </div>
             <div class="col-md-4">
               <div class="period-box">
-                <!-- {{period}} --> 00
+                {{period}} 
               </div>
             </div>
             <div class="col-md-4">
               <div class="away-fouls-box">
-                <!-- {{guest_foul}} --> 00
+                {{guest_foul}} 
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
             <div class="away-score">
-                <!-- {{guest_score}} --> 000
+                {{guest_score}} 
             </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+          <div class="sec-24">
+            {{all24}}
+        </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+      <div class="row image-rel">
+        <div class="col-md-4">
+            <img class="img-100" src="https://firebasestorage.googleapis.com/v0/b/ghyred-sweet16.appspot.com/o/HoopHood-01.png?alt=media&token=c76cce44-1e88-41e5-b0d7-20501addc077">
+        </div>
+        <div class="col-md-4">
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/ghyred-sweet16.appspot.com/o/HoopHood-01.png?alt=media&token=c76cce44-1e88-41e5-b0d7-20501addc077"> -->
+        </div>
+        <div class="col-md-4">
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/ghyred-sweet16.appspot.com/o/HoopHood-01.png?alt=media&token=c76cce44-1e88-41e5-b0d7-20501addc077"> -->
         </div>
       </div>
 </div>
