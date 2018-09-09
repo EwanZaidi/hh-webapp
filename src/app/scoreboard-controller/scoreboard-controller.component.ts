@@ -20,7 +20,7 @@ export class ScoreboardControllerComponent implements OnInit {
   display_second: number;
 
   start: Boolean = false;
-  s24: Boolean = false;
+  st24: Boolean = false;
 
   home_foul: number;
   guest_foul: number;
@@ -110,17 +110,11 @@ export class ScoreboardControllerComponent implements OnInit {
       this.timeChange();
     }, 1000);
 
-    this.timer24 = setInterval(()=> {
-      this.change24();
-    }, 1000)
-
     this.start = !this.start;
   }
 
   stopTimer(){
     clearInterval(this.timer);
-
-    clearInterval(this.timer24);
 
     this.start = !this.start;
   }
@@ -166,13 +160,13 @@ export class ScoreboardControllerComponent implements OnInit {
       this.change24();
     }, 1000)
 
-    this.s24 = !this.s24;
+    this.st24 = !this.st24;
   }
 
   stop24(){
     clearInterval(this.timer24);
 
-    this.s24 = !this.s24;
+    this.st24 = !this.st24;
   }
 
   change24(){
@@ -235,9 +229,17 @@ export class ScoreboardControllerComponent implements OnInit {
   }
 
   homeSubFoul(){
-    this.fs.collection('scoreboard').doc('alumni1').update({
-      home_foul: this.home_foul-1
-    })
+    let fouls = this.home_foul - 1;
+    if(fouls <= 0){
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        home_foul: 0
+      })
+    }else{
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        home_foul: fouls
+      })
+    }
+   
   }
 
   guestFoul(){
@@ -251,33 +253,57 @@ export class ScoreboardControllerComponent implements OnInit {
   }
 
   guestSubFoul(){
+    let fouls = this.guest_foul - 1;
+    if(fouls <= 0){
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        guest_foul: 0
+      })
+    }else{
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        guest_foul: fouls
+      })
+    }
+    
+  }
+
+  homeScore(no:number){
+    
     this.fs.collection('scoreboard').doc('alumni1').update({
-      guest_foul: this.guest_foul-1
+      home_score: this.home_score + no
     })
   }
 
-  homeScore(){
+  homeSubScore(no:number){
+    let newscore = this.home_score - no;
+    if(newscore <= 0){
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        home_score: 0
+      })
+    }else{
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        home_score: newscore
+      })
+    }
+    
+  }
+
+  guestScore(no:number){
     this.fs.collection('scoreboard').doc('alumni1').update({
-      home_score: this.home_score+1
+      guest_score: this.guest_score + no
     })
   }
 
-  homeSubScore(){
-    this.fs.collection('scoreboard').doc('alumni1').update({
-      home_score: this.home_score-1
-    })
-  }
-
-  guestScore(){
-    this.fs.collection('scoreboard').doc('alumni1').update({
-      guest_score: this.guest_score+1
-    })
-  }
-
-  guestSubScore(){
-    this.fs.collection('scoreboard').doc('alumni1').update({
-      guest_score: this.guest_score-1
-    })
+  guestSubScore(no:number){
+    let newscore = this.guest_score - no;
+    if(newscore <= 0){
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        guest_score: 0
+      })
+    }else{
+      this.fs.collection('scoreboard').doc('alumni1').update({
+        guest_score: newscore
+      })
+    }
   }
 
   homeBonus(){

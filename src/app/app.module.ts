@@ -30,6 +30,8 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScoreboardControllerComponent } from './scoreboard-controller/scoreboard-controller.component';
 
 import { ModalModule } from 'ngx-bootstrap';
+import { NbaComponent } from './nba/nba.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 
@@ -48,7 +50,8 @@ import { ModalModule } from 'ngx-bootstrap';
     AdminComponent,
     ChangePasswordComponent,
     ScoreboardComponent,
-    ScoreboardControllerComponent
+    ScoreboardControllerComponent,
+    NbaComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { ModalModule } from 'ngx-bootstrap';
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    PdfViewerModule
   ],
   providers: [AuthService,AuthService2, UploadService],
   bootstrap: [AppComponent]

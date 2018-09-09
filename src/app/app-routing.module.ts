@@ -16,6 +16,7 @@ import { AuthService2 } from './service/auth2.service';
 import { ManageComponent } from './manage/manage.component';
 import { AdminComponent } from './admin/admin.component';
 import { ScoreboardControllerComponent } from './scoreboard-controller/scoreboard-controller.component';
+import { NbaComponent } from './nba/nba.component';
 
 const routes: Routes = [
   { path: '', component: RegistrationComponent, pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'cpd', component: ChangePasswordComponent, pathMatch: 'full'},
   {path:'scoreboard', component: ScoreboardComponent, pathMatch:'full'},
   {path: 'scoreboard/controller', component: ScoreboardControllerComponent, canActivate: [AuthService]},
+  {path: 'admin/nba', component: NbaComponent, canActivate: [AuthService]}
 ];
 
 

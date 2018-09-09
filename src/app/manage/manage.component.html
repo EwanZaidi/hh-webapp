@@ -37,9 +37,9 @@
       <div class="col-md-6">
         <p>Players</p>
       </div>
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Player</button>
-      </div>
+      </div> -->
     </div>
     <div class="row text-center form-signin-2">
       <div class="col-md-1">#</div>
@@ -56,8 +56,11 @@
         <div class="col-md-3">{{n.data.player_ic}}</div>
         <div class="col-md-2">
           <div class="row text-center">
-            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#playerEditModal" (click)="eplayer(n.id)"><i class="fa fa-pencil-square-o" style="font-size: 24px; cursor: pointer;"></i></button>
+            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#playerEditModal" (click)="eplayer(n.id)"><i
+                class="fa fa-pencil-square-o" style="font-size: 24px; cursor: pointer;"></i></button>
             <button class="btn btn-danger btn-sm" (click)="dplayer(n.id)"><i class="fa fa-trash" style="font-size: 24px; cursor: pointer;"></i></button>
+            <button class="btn btn-secondary btn-sm" data-toggle="modal" (click)="eplayer(n.id)" data-target="#playerSijilModal"><i class="fa fa-info"
+                style="font-size: 24px; cursor: pointer;"></i></button>
           </div>
         </div>
       </div>
@@ -157,52 +160,73 @@
     </div>
     <!-- End Modal 2-->
 
-      <!-- modal edit player -->
-      <div class="modal fade" id="playerEditModal" role="dialog">
-        <div class="modal-dialog">
-  
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-              <h4 class="modal-title">Edit Player</h4>
-            </div>
-            <div class="modal-body">
-              <form #playerForm="ngForm" class="form-signin-2">
-                <div class="row">
-                  <div class="col-md-4 text-left">Nama Pemain:</div>
-                  <div class="col-md-6">
-                    <input type="text" name="name" ngModel [ngModel]="(player|async)?.player_name" class="form-control">
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-md-4 text-left">Jersi:</div>
-                  <div class="col-md-6">
-                    <input type="number" name="jersey" ngModel [ngModel]="(player|async)?.player_jersey" class="form-control">
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-md-4 text-left">Nric</div>
-                  <div class="col-md-6">
-                    <input type="text" name="ic" ngModel [ngModel]="(player|async)?.player_ic" class="form-control">
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-md-4 text-left">Surat Tamat Sekolah</div>
-                  <div class="col-md-6">
-                    <input type="file" (change)="surat($event)" name="surat" ngModelclass="form-control">
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-success mt-4" (click)="updateplayer(playerForm)" data-dismiss="modal">Update Player</button>
-              <button class="btn btn-danger mt-4" (click)="cancelplayer()" data-dismiss="modal">Cancel</button>
-            </div>
+    <!-- modal edit player -->
+    <div class="modal fade" id="playerEditModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">Edit Player</h4>
           </div>
-  
+          <div class="modal-body">
+            <form #playerForm="ngForm" class="form-signin-2">
+              <div class="row">
+                <div class="col-md-4 text-left">Nama Pemain:</div>
+                <div class="col-md-6">
+                  <input type="text" name="name" ngModel [ngModel]="(player|async)?.player_name" class="form-control">
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-md-4 text-left">Jersi:</div>
+                <div class="col-md-6">
+                  <input type="number" name="jersey" ngModel [ngModel]="(player|async)?.player_jersey" class="form-control">
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-md-4 text-left">Nric</div>
+                <div class="col-md-6">
+                  <input type="text" name="ic" ngModel [ngModel]="(player|async)?.player_ic" class="form-control">
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-md-4 text-left">Surat Tamat Sekolah</div>
+                <div class="col-md-6">
+                  <input type="file" (change)="surat($event)" name="surat" ngModelclass="form-control">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success mt-4" (click)="updateplayer(playerForm)" data-dismiss="modal">Update Player</button>
+            <button class="btn btn-danger mt-4" (click)="cancelplayer()" data-dismiss="modal">Cancel</button>
+          </div>
         </div>
+
       </div>
+    </div>
+
+    <div class="modal fade" id="playerSijilModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">Sijil Tamat Sekolah</h4>
+          </div>
+          <div class="modal-body">
+            <img *ngIf="surat_image !== null" [src]='surat_image' style="width:300px; height:auto" />
+            <pdf-viewer src="{{surat_image}}" [render-text]="true" style="display: block;"></pdf-viewer>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger mt-4" (click)="cancelplayer()" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
   </div>

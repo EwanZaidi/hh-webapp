@@ -1,5 +1,6 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="/admin/register">Hoop Hood</a>
@@ -189,9 +190,11 @@
     <div *ngFor="let n of oldPlayer | async; let i = index">
       <div class="row text-center">
         <div class="col-md-2">{{i + 1}}</div>
-        <div class="col-md-4"><span style="cursor: pointer" (click)="seeSurat(n.data.image)" data-toggle="modal" data-target="#myModal">{{n.data.player_name}}</span></div>
+        <div class="col-md-4"><span style="cursor: pointer" (click)="seeSurat(n.data.surat)" data-toggle="modal" data-target="#myModal">{{n.data.player_name}}</span></div>
         <div class="col-md-4">{{n.data.player_jersey}}</div>
-        <div class="col-md-2"><button class="btn btn-primary btn-sm" (click)="eplayer(n.id)">Edit</button><button *ngIf="verifyPlayer[i]" class="btn btn-success btn-sm" (click)="verifyPlayer(i,n.id)"><i class="fa fa-check"></i></button><button *ngIf="!verifyPlayer[i]" class="btn btn-danger btn-sm" (click)="verifyPlayer(i,n.id)"><i class="fa fa-times"></i></button></div>
+        <div class="col-md-2"><button class="btn btn-primary btn-sm" (click)="eplayer(n.id)">Edit</button><button *ngIf="verifyPlayer[i]"
+            class="btn btn-success btn-sm" (click)="verifyPlayer(i,n.id)"><i class="fa fa-check"></i></button><button *ngIf="!verifyPlayer[i]"
+            class="btn btn-danger btn-sm" (click)="verifyPlayer(i,n.id)"><i class="fa fa-times"></i></button></div>
       </div>
     </div>
     <div *ngFor="let n of newPlayer; let i = index">
@@ -311,7 +314,8 @@
         <h4 class="modal-title">Sijil Tamat Sekolah</h4>
       </div>
       <div class="modal-body">
-        <img *ngIf="surat_image !== null" [src]='surat_image' style="width:300px; height:auto"/>
+        <img *ngIf="surat_image !== null" [src]='surat_image' style="width:300px; height:auto" />
+        <pdf-viewer *ngIf="surat_image !== null" src="{{surat_image}}" [render-text]="true" style="display: block;"></pdf-viewer>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger mt-4" (click)="cancelplayer()" data-dismiss="modal">Cancel</button>

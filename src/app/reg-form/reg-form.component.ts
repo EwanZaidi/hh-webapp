@@ -28,12 +28,12 @@ export class RegFormComponent implements OnInit {
   editform: Boolean = false;
   teamlist: Boolean = true;
 
-  ids:any;
+  ids: any;
   surat_image;
 
   team: Observable<any>;
   updateId;
-  verified : Array<Boolean>;
+  verified: Array<Boolean>;
   oldPlayer: Observable<any>;
   uplayer: Boolean = false;
   playerid;
@@ -72,8 +72,14 @@ export class RegFormComponent implements OnInit {
     this.playerlist = !this.playerlist;
   }
 
-  seeSurat(surat){
-    this.surat_image = surat;
+  seeSurat(surat) {
+    console.log(surat);
+    if (surat == ' ') {
+      alert('yaa')
+      this.surat_image = null;
+    } else {
+      this.surat_image = surat;
+    }
   }
 
   cancelplayer() {
@@ -165,12 +171,12 @@ export class RegFormComponent implements OnInit {
         const data = pl.payload.doc.data();
         const id = pl.payload.doc.id;
 
-        if(data.verify_status == null){
+        if (data.verify_status == null) {
           data.verify_status = false;
         }
 
-        data.status = data.verify_status?data.verify_status:false;
-        data.image = data.surat?data.surat:'';
+        data.status = data.verify_status ? data.verify_status : false;
+        data.surat = data.surat?data.surat : null;
 
         return { data, id };
       })
@@ -186,10 +192,10 @@ export class RegFormComponent implements OnInit {
 
   }
 
-  verifyPlayer(i,id){
+  verifyPlayer(i, id) {
     this.verifyPlayer[i] = !this.verifyPlayer[i];
     this.firestore.collection('teams').doc(this.updateId).collection('players').doc(id).update({
-      verify_status : this.verifyPlayer[i]
+      verify_status: this.verifyPlayer[i]
     })
   }
 
@@ -264,7 +270,7 @@ export class RegFormComponent implements OnInit {
   }
 
   copyteam() {
-    let old: AngularFirestoreCollection<any> = this.firestore.collection('teams', ref => ref.where('team_name', '==', 'SMSS').where('zone', '==', 'Tengah').where('category','==', 'Lelaki'));
+    let old: AngularFirestoreCollection<any> = this.firestore.collection('teams', ref => ref.where('team_name', '==', 'SMSS').where('zone', '==', 'Tengah').where('category', '==', 'Lelaki'));
     let olds: Observable<any> = old.snapshotChanges().map((items) => {
       return items.map(i => {
         const data = i.payload.doc.data();
@@ -274,7 +280,7 @@ export class RegFormComponent implements OnInit {
       })
     })
 
-    
+
 
     olds.subscribe(a => {
       console.log(a);

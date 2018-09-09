@@ -29,7 +29,7 @@ export class GroupComponent implements OnInit {
   findteam: Boolean = false;
   register: Boolean = false;
   
-  zone = [{id: '----'},{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}, {id: 'Kebangsaan'}, {id: 'Alumni'}];
+  zone = [{id: '----'},{id: 'Tengah'}, {id:'Selatan'}, {id: 'Timur'}, {id: 'Kebangsaan'}, {id: 'Alumni 2018'}];
 
   teamName;
   add : Boolean = false;
@@ -116,7 +116,7 @@ export class GroupComponent implements OnInit {
       grp_name = 'SLT';
     }else if(form.value.zone == 'Timur'){
       grp_name = 'TMR';
-    }else if(form.value.zone == 'Alumni'){
+    }else if(form.value.zone == 'Alumni 2018s'){
       grp_name = 'ALM'
     }else{
       grp_name = 'KBG'

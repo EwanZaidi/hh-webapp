@@ -33,6 +33,8 @@ export class ManageComponent implements OnInit {
 
   player: Observable<any>;
 
+  surat_image;
+
   constructor(private fs: AngularFirestore, private aRouter: ActivatedRoute, private router: Router, private uSvc: UploadService) {
 
     this.tid = this.aRouter.snapshot.params['id'];
@@ -63,7 +65,9 @@ export class ManageComponent implements OnInit {
     let p : AngularFirestoreDocument<any> = this.fs.collection('teams').doc(this.tid).collection('players').doc(id);
     this.player = p.valueChanges();
 
-    this.player.subscribe();
+    this.player.subscribe(x => {
+      this.surat_image = x.surat;
+    });
   }
 
   addedplayer(playerForm){
@@ -120,7 +124,7 @@ export class ManageComponent implements OnInit {
       team_name: registerForm.value.team,
       coach: registerForm.value.coach,
       assistant_coach: registerForm.value.atcoach,
-      zone: 'Alumni',
+      zone: 'Alumni 2018',
       is_confirm: true,
       category: 'Lelaki'
     }).then(()=>{
